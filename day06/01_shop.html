@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url(../day05/reset.css);
+
+        body{
+            min-width: 900px; /* 제품 컨텐츠 보호를 위해 설정*/
+        }
+        .container>.navbar{
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 30px;
+            align-items: center;
+        }
+        .container>.navbar>a{
+            font-size: 40px;
+            color: black;
+        }
+        .container>.navbar>ul{
+            display: flex;
+            justify-content: space-between;
+        }
+        .container>.navbar>ul>li{
+            margin: 0 10px;
+        }
+        .container>.navbar>ul>li>a{
+            color: gray;
+            font-size: 30px;
+        }
+        .container>.navbar>ul>li>a:hover{
+            color: chocolate;
+        }
+        .container>.main-img{
+            height: 400px;
+            background-image: url(../image/도쿄.jpg);
+            background-size: cover;
+            background-position: center;
+            margin: 20px 0;
+        }
+        .container>h1{
+            font-size: 50px;
+            text-align: center;
+            color: rgb(118, 116, 116);
+            margin: 50px 0;
+        }
+        .container>.product{
+            /* 230*3 margin 20*6 = 810*/
+            width: 850px;
+            margin: 0 auto;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            justify-content: center;
+            flex-wrap: wrap;
+            box-sizing: border-box;
+        }
+        .container>.product>a{
+            margin: 0 20px;
+        }
+        .container>.product>a img{
+            width: 230px;
+            height: 230px;
+        }
+        .container>.product>a ul{
+            margin: 20px 0 50px 0;
+        }
+        .container>.product>a ul>li{
+            margin: 10px;
+            color: black;
+            font-size: 20px;
+        }
+        .container>.footer{
+            text-align: center;
+            margin: 30px auto 50px;
+        }
+        .container>.footer>svg{
+            width: 30px;
+            height: 30px;
+            margin: 0 30px;
+        }
+        /* 이미지 호버시 살짝 커지게*/
+        .container>.product img:hover{
+            transform: scale(1.1);
+        }
+        .container>.product img{
+            transition: 0.3s;
+        }
+        /* 네모가 커지지 않고 이미지만 확대 하려면*/
+        .container>.product div{
+            width: 230px;
+            height: 230px;
+            overflow: hidden;
+        }
+        /* 세일상품 텍스트 위치 설정 */
+        .container>.product>a{
+            position: relative;
+        }
+        .container>.product .text{
+            position: absolute;
+            top: 230px;
+            color: red;
+            font-weight: 700;
+            /* 화면에서 사라지게 설정 */
+            display: none;
+        }
+        /* 
+            hover시 다른 객체가 변경되게 할 때 
+            조상 자식(띄어쓰기)
+            부모 > 자식 (>)
+            형제 ~ 형제 (~)
+        */
+        .container>.product img:hover ~.text{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 헤더메뉴 -->
+        <div class="navbar">
+            <a href="">▦SIMPLE SHOP</a>
+            <ul>
+                <li><a href="">Content</a></li>
+                <li><a href="">Shop</a></li>
+                <li><a href="">Cart</a></li>
+                <li><a href="">Login</a></li>
+            </ul>
+        </div>
+        <!-- 메인이미지 -->
+        <div class="main-img"></div>
+        <!-- 중간제목 -->
+        <h1>Our New product</h1>
+        <!-- 제품 이미지 3*3 -->
+        <div class="product">
+            <!-- 8개 복사 -->
+            <a href="">
+                <div>
+                    <img src="../image/뭉크절규.jpg" alt="">
+                    <div class="text">세일상품</div>
+                </div>
+                <ul>
+                    <li>뭉크의 절규</li>
+                    <li>9,000,000,000</li>
+                </ul>
+            </a>
+            <a href="">
+                <div>
+                    <img src="../image/뭉크절규.jpg" alt="">
+                </div>
+                <ul>
+                    <li>뭉크의 절규</li>
+                    <li>9,000,000,000</li>
+                </ul>
+            </a>
+            <a href="">
+                <div>
+                    <img src="../image/뭉크절규.jpg" alt="">
+                </div>
+                <ul>
+                    <li>뭉크의 절규</li>
+                    <li>9,000,000,000</li>
+                </ul>
+            </a>
+            <a href="">
+                <div>
+                    <img src="../image/뭉크절규.jpg" alt="">
+                </div>
+                <ul>
+                    <li>뭉크의 절규</li>
+                    <li>9,000,000,000</li>
+                </ul>
+            </a>
+            <a href="">
+                <div>
+                    <img src="../image/뭉크절규.jpg" alt="">
+                </div>
+                <ul>
+                    <li>뭉크의 절규</li>
+                    <li>9,000,000,000</li>
+                </ul>
+            </a>
+            <a href="">
+                <div>
+                    <img src="../image/뭉크절규.jpg" alt="">
+                </div>
+                <ul>
+                    <li>뭉크의 절규</li>
+                    <li>9,000,000,000</li>
+                </ul>
+            </a>
+            <a href="">
+                <div>
+                    <img src="../image/뭉크절규.jpg" alt="">
+                </div>
+                <ul>
+                    <li>뭉크의 절규</li>
+                    <li>9,000,000,000</li>
+                </ul>
+            </a>
+            <a href="">
+                <div>
+                    <img src="../image/뭉크절규.jpg" alt="">
+                </div>
+                <ul>
+                    <li>뭉크의 절규</li>
+                    <li>9,000,000,000</li>
+                </ul>
+            </a>
+            <a href="">
+                <div>
+                    <img src="../image/뭉크절규.jpg" alt="">
+                </div>
+                <ul>
+                    <li>뭉크의 절규</li>
+                    <li>9,000,000,000</li>
+                </ul>
+            </a>
+        </div>
+        <div class="footer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-android" viewBox="0 0 16 16">
+            <path d="M2.76 3.061a.5.5 0 0 1 .679.2l1.283 2.352A8.9 8.9 0 0 1 8 5a8.9 8.9 0 0 1 3.278.613l1.283-2.352a.5.5 0 1 1 .878.478l-1.252 2.295C14.475 7.266 16 9.477 16 12H0c0-2.523 1.525-4.734 3.813-5.966L2.56 3.74a.5.5 0 0 1 .2-.678ZM5 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2m6 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-amazon" viewBox="0 0 16 16">
+            <path d="M10.813 11.968c.157.083.36.074.5-.05l.005.005a90 90 0 0 1 1.623-1.405c.173-.143.143-.372.006-.563l-.125-.17c-.345-.465-.673-.906-.673-1.791v-3.3l.001-.335c.008-1.265.014-2.421-.933-3.305C10.404.274 9.06 0 8.03 0 6.017 0 3.77.75 3.296 3.24c-.047.264.143.404.316.443l2.054.22c.19-.009.33-.196.366-.387.176-.857.896-1.271 1.703-1.271.435 0 .929.16 1.188.55.264.39.26.91.257 1.376v.432q-.3.033-.621.065c-1.113.114-2.397.246-3.36.67C3.873 5.91 2.94 7.08 2.94 8.798c0 2.2 1.387 3.298 3.168 3.298 1.506 0 2.328-.354 3.489-1.54l.167.246c.274.405.456.675 1.047 1.166ZM6.03 8.431C6.03 6.627 7.647 6.3 9.177 6.3v.57c.001.776.002 1.434-.396 2.133-.336.595-.87.961-1.465.961-.812 0-1.286-.619-1.286-1.533M.435 12.174c2.629 1.603 6.698 4.084 13.183.997.28-.116.475.078.199.431C13.538 13.96 11.312 16 7.57 16 3.832 16 .968 13.446.094 12.386c-.24-.275.036-.4.199-.299z"/>
+            <path d="M13.828 11.943c.567-.07 1.468-.027 1.645.204.135.176-.004.966-.233 1.533-.23.563-.572.961-.762 1.115s-.333.094-.23-.137c.105-.23.684-1.663.455-1.963-.213-.278-1.177-.177-1.625-.13l-.09.009q-.142.013-.233.024c-.193.021-.245.027-.274-.032-.074-.209.779-.556 1.347-.623"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-lightning-rain-fill" viewBox="0 0 16 16">
+            <path d="M2.658 11.026a.5.5 0 0 1 .316.632l-.5 1.5a.5.5 0 1 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.316m9.5 0a.5.5 0 0 1 .316.632l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.316m-7.5 1.5a.5.5 0 0 1 .316.632l-.5 1.5a.5.5 0 1 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.316m9.5 0a.5.5 0 0 1 .316.632l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.316m-7.105-1.25A.5.5 0 0 1 7.5 11h1a.5.5 0 0 1 .474.658l-.28.842H9.5a.5.5 0 0 1 .39.812l-2 2.5a.5.5 0 0 1-.875-.433L7.36 14H6.5a.5.5 0 0 1-.447-.724zm6.352-7.249a5.001 5.001 0 0 0-9.499-1.004A3.5 3.5 0 1 0 3.5 10H13a3 3 0 0 0 .405-5.973"/>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

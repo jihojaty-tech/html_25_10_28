@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        색상관련 속성
+        - color : 글자색
+        - background-color : 배경색
+        - border-color : 테두리색
+
+        색상 지정 방법
+        - 이미 지정된 이름을 사용하는 방법 : red, yellow 등
+        - 색상 코드를 이용하는 방법 : 16진수 색상 코드
+        - 색상 팔레트를 이용하는 방법
+            rgb(0,0,0) 코드를 이용하는 방법
+            rgba(0,0,0,@) : a 투명도 0~1 , 반투명 0.5
+        - 그라디언트 : 여러 색상의 조합 => 구글링으로 사이트에서 참조
+        - background-color : linear-gradient(방향, 색상1, 색상2);
+    -->
+        <style>
+            div{
+                width: 300px;
+                height: 100px;
+                text-align: center; /* 해당 영역에 중간으로*/
+                line-height: 100px; /* 세로도 설정해서 완전 중앙으로 위치*/
+            }
+            .color{
+                color: aqua;
+                background-color: rgba(32, 174, 230, 1);
+            }
+            .bg-color{
+                background-color: blue;
+            }
+            .bg-color{
+                background: #20aee6;
+                background: linear-gradient(90deg, rgba(32, 174, 230, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
+            } 
+            .b-color{
+                border: 1px; /* 두께만 넣음(반영은 안됨)*/
+                border-style: solid; /* 모양넣기 solid는 기본 한줄을 의미*/
+                border-color: red;
+                 border: 1px double beige; /* 한번에 넣기 가능 순서는 두께,모양,색 순으로 입력*/
+            }  
+            .box{
+                color: rgba(137, 242, 232, 0.92);
+                background: #3d34a3;
+                background: radial-gradient(circle, rgba(61, 52, 163, 1) 0%, rgba(87, 132, 199, 1) 50%, rgba(237, 83, 119, 1) 100%);    
+                border: 3px ridge rgb(48, 33, 210,0.5);
+            }
+        </style>
+</head>
+<body>
+    <div class="color">글자색</div>
+    <div class="bg-color">배경색</div>
+    <div class="b-color">테두리색</div>
+    <div class="box">test</div>
+</body>
+</html>

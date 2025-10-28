@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        이름, 국어, 영어, 수학 점수를 입력받고 계산 버튼을 누르면
+        합계, 평균, 평균이 80점이상이면 합격
+        국어,영어,수학의 값이 0~100 사이의 값이 아니라면 alert 창을 띄워 안내
+    -->
+    <fieldset>
+        <legend>성적표</legend>
+        이름 : <input type="text" id="name" placeholder="이름을 입력해주세요."> <br>
+        국어 : <input type="text" id="kor" placeholder="국어점수를 입력해주세요."> <br>
+        영어 : <input type="text" id="eng" placeholder="영어점수를 입력해주세요."> <br>
+        수학 : <input type="text" id="math" placeholder="수학점수를 입력해주세요."> <br>
+        <button onclick="clickEvent()">성적표 출력</button>
+    </fieldset>
+    
+    <ul id="ul"></ul>
+
+    <script>
+        function clickEvent(){
+            const ul = document.getElementById('ul');
+            let name = document.getElementById('name').value;
+            let kor = Number(document.getElementById('kor').value);
+            let eng = Number(document.getElementById('eng').value);
+            let math = Number(document.getElementById('math').value);
+
+            let sum = kor + eng + math;
+            let avg = (sum / 3).toFixed(2);
+            let error = true;
+
+            if(kor > 100 || kor < 0 ){
+                alert("국어점수를 다시 입력해주세요");
+                document.getElementById('kor').value = '';
+                error =  false;
+            }
+            if(eng > 100 || eng < 0 ){
+                alert("영어점수를 다시 입력해주세요");
+                document.getElementById('eng').value = '';
+                error = false;
+            }
+            if(math > 100 || math < 0 ){
+                alert("수학점수를 다시 입력해주세요");
+                document.getElementById('math').value = '';
+                error = false;
+            }
+            
+            if(error != false){
+            if(avg >= 80){
+                str = '합격';
+            }else{
+                str = '불합격';
+            }
+            ul.innerHTML = `이름 : ${name}, 합계 : ${sum}점, 평균 : ${avg}점 , 합격 여부 : ${str}`;
+        }
+        }
+
+
+    </script>
+</body>
+</html>

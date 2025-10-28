@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <!-- 
+        box-sizing : box의 크기를 지정하는 속성
+        width : 컨텐츠의 가로 길이
+        box-sizing에 따라 width 크기가 컨텐츠의 가로길이가 될 수도 있고,
+        박스 전체의 가로 길이가 될 수도 있음
+        - border-box : width = 컨텐츠 가로길이 + 패딩(왼+오) + 테두리(왼+오)
+        - content-box : width = 컨텐츠 가로길이
+        width=100px / padding=5px / border=1px
+        - border-box : 가로(88px) + 5 + 5 + 1 + 1= 100px
+        - content-box : 가로(100px) + 5 + 5 + 1 + 1 = 112px
+
+        magin : [top=bottom=left=right];
+        magin : [top=bottom][left=right];
+        magin : [top] [left=right] [bottom];
+        magin : [top][right][bottom][left]; (시계방향)
+    -->
+    <style>
+        .black-han-sans-regular {
+        font-family: "Black Han Sans", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        }
+
+        .box{
+            width: 100px;
+            height: 100px;
+            /* padding:10px border:1px*/
+            padding: 10px;
+            border: 1px solid black;
+        }
+        .box1{
+            background-color: blue;
+            box-sizing: border-box;
+        }
+        .box2{
+            background-color: red;
+            box-sizing: content-box;
+        }
+        /*380*56*/
+        .naverlogo{
+            background-color: rgb(3, 169, 77);
+            width: 380px;
+            height: 56px;
+            margin: 10px 0;
+            padding: 18px;
+            color: white;
+            text-align: center;
+            border: 1px solid #03a94d;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .nanum-gothic-coding-regular {
+            font-family: "Nanum Gothic Coding", monospace;
+            font-weight: 400;
+            font-style: normal;
+        }
+         
+        .로그인{
+            color: white;
+        }
+
+        .naverlogo:hover{
+            background-color: #059847;
+            color: white;
+        }
+        a{
+            text-decoration: none; /* a tag 밑줄 없애기*/
+        }
+    </style>
+</head>
+<body>
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+
+<!-- a tag는 자동 밑줄그임, a tag 밑줄 없애야함 -->
+    <a href="http://www.naver.com" target="_blank"> 
+    <div class="naverlogo black-han-sans-regular">NAVER
+    </div>
+    </a>
+</body>
+</html>

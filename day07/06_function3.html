@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function divFunc(p1,p2){
+            return p1/p2;
+        }
+        function mulFunc(p1,p2){
+            return divFunc(p1,p2);
+        }
+        function subFunc(p1,p2){
+            return mulFunc(p1,p2);
+        }
+        function sumFunc(p1,p2){
+            return subFunc(p1,p2);
+        }
+
+        const result = subFunc(10,20);
+        console.log(result);
+
+        
+        function myFuncOld(myFuncParam){
+            console.log('myFuncOld function');
+            return `Hello~!! ${myFuncParam}`;
+        }
+
+        const myFunc = function(myName){
+            console.log('myfunc function');
+            return `Hello~!! ${myName}`;
+        }
+        console.log(myFuncOld('홍길동'));
+        console.log(myFunc('홍길동'));
+
+        console.log(myFuncOld(myFunc('홍길동')));
+    </script>
+</body>
+</html>

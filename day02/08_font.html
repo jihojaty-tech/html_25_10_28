@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet"> -->
+    <title>Document</title>
+    <style>
+
+        .font{
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 50px;
+            font-weight: 700;
+            font-style: normal;
+        }
+        .font{
+            font-family: "Black Han Sans", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        /* 구글 폰트에서 다운로드 받아서 이미지 했듯이 하기 */
+        @font-face {
+            font-family: BlackHanSans-Regular;
+            src: url(../font/BlackHanSans-Regular.ttf);
+        }
+        .font{
+            font-family: BlackHanSans-Regular;
+            font-weight: 400;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 
+        font 지정
+        - 글꼴 / 크기 / 스타일 / 굵기
+        - font-family : 브라우저마다 지원하는 폰트가 다르고, 언어마다 달라 폰트의 묶음으로 설정
+            지정하려는 폰트를 , 로 나열
+            한글 폰트의 경우 한글이름과, 영문이름을 같이 사용
+            마지막 폰트는 기본형으로 지정(serif)
+            폰트명에 띄어쓰기가 있으면 ex) font-family: "나눔 고딕", 굴림
+        - font-size : 글자 크기
+        - font-style : 기울림꼴 등등
+        - font-weight : 굵기 100~900 (100단위 일반적으로 700사용)
+        - font : 속성을 한 번에 지정하는 경우
+        - font[style | weight] size family
+    -->
+    <div class="font">안녕하세요</div>
+</body>
+</html>

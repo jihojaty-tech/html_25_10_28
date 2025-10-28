@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>날짜 관련 함수</h1>
+    <!-- 
+        - new Date(); => 오늘 날짜 리턴
+        - getFullYear() : 연도만 리턴
+        - getMonth() : 월만 리턴 0~11 까지만 있음 그래서 +1 붙여야함
+        - getDate() : 일 1~31 리턴
+        - getDay() : 요일 0~6 (0은 일요일 6이 토요일)
+        - getHours(), getMinutes(), getSeconds() => 시분초 추출
+    -->
+
+    <script>
+        let today = new Date();
+        console.log(today);
+        console.log(today.getFullYear());
+        console.log(today.getMonth()+1);
+        console.log(today.getDate());
+        console.log(today.getDay());
+        console.log(today.getHours());
+        console.log(today.toLocaleDateString()); // 2025. 10. 24. 이런 모양으로 찍힘
+        console.log(today.toLocaleTimeString()); // 오후 12:33:07
+        console.log(today.toDateString()); // Fri Oct 24 2025
+        console.log(today.toString()); // Fri Oct 24 2025 12:34:32 GMT+0900 (한국 표준시) string 으로 출력
+        console.log(today.toLocaleString()); // tolocale~ date,time 합친거
+    </script>
+</body>
+</html>

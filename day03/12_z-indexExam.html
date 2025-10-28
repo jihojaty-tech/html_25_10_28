@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .p-box{
+            width: 300px;
+            height: 500px;
+            border: 1px solid black;
+            margin: 10px auto;
+        }
+        .text1{
+            height: 70px;
+            margin: 10px;
+            border: 3px solid black;
+            text-align: center;
+            line-height: 70px;
+            font-weight: 700;
+            font-size: 30px;
+        }
+        .box1{
+            margin-left: 10px;
+            margin-right: 10px;
+            height: 300px;
+            border: 3px solid black;
+            position: relative;
+        }
+        .text2{
+            height: 70px;
+            margin: 10px;
+            border: 3px solid black;
+            text-align: center;
+            line-height: 70px;
+            font-weight: 700;
+            font-size: 30px;
+        }
+        .paper{ 
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            box-shadow: 9px 9px 9px gray;
+        }
+        .p1{
+            background-color: red;
+            top: 60px;
+            left: 35px;
+            z-index: 100;
+            }
+        .p2{
+            background-color: green;
+            top: 110px;
+            left: 80px;
+            z-index: 50;
+        }
+        .p3{
+            background-color: blue;
+            top: 150px;
+            left: 120px;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <div class="p-box">
+        <div class="box text1">텍스트</div>
+        <div class="box box1">
+            <div class="paper p1"></div>
+            <div class="paper p2"></div>
+            <div class="paper p3"></div>
+        </div>
+        <div class="box text2">텍스트</div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>자바스크립트의 변수 사용</h1>
+    <!-- 
+        변수 : 값을 담고 있는 메모리 공간의 이름 / 할당
+        java => 자료형 변수명 = 값;
+        자바스크립트의 변수는 선언하는 역할만 함 (변수에 선언하는 자료형이 없음)
+        하나의 변수에 아무 자료나 들어갈 수 있음(구분안됨 구분하기 위해서는 따로 출력창에서 확인 가능)
+        자바스크립트의 문자 표현은 '',"",``(백틱) 사용
+        일반적으로 '' 을 사용
+        '',"" => 문자, html의 속성은 ""
+        ``(백틱)은 변수를 같이 사용 가능 
+        '값'+변수 백틱은 `값 ${변수}` 가능
+
+        var, let, const
+        - var : ES6 ver. 이후로 권장하지 않음
+            중복선언이 가능, 재할당 가능
+            var name ='hong';
+            var name ='kim'; => 중복선언 가능
+
+        - let : java 지역변수 개념
+            중복선언이 불가능, 재할당 가능
+            let name ='hong';
+            let name ='kim'; => 중복선언 불가능
+            name ='kim'; => 이렇게 재할당은 가능
+
+        - const : 객체, 함수, 규칙, 참조 정의시 사용 (고정된 값을 사용할 때)
+            중복선언 불가능, 재할당 불가능
+
+        변수의 사용범위(scope : 스코프) : { 이 안에서만 가능 }
+        { }를 벗어나면 재선언 가능
+    -->
+        <script>
+            let name ='hong';
+            console.log(name);
+            // let name ='kim'; 중복선언 불가능
+            name = 'kim'; 
+            console.log(name)
+
+            const number = 123;
+            console.log(number);
+            // number = 456; 재할당 불가능 
+            console.log(number);
+
+            let num;
+            console.log(num); // let에서 값이 없다면 undefined
+
+            // const num2;  재할당이 불가능하기 때문에 선언만 불가능
+
+            // 변수 선언시 자바스크립트도 camelCase : 자바 + 자바스크립트 / sql 은 _ underline_case를 사용
+            let myFirst = '123';
+            console.log(myFirst);
+            // const input = `<input type="text">`
+            console.log(`내가 선언한 변수 ${myFirst}`); // 백틱 사용
+            console.log('내가 선언한 변수' + myFirst); // 연결연산자
+            console.log('내가 선언한 변수', myFirst); // ,로도 사용 가능
+
+            let firstName = 'kim';
+            let lastName = 'gildong';
+            let age = 20;
+            // name : kimgildong / age : 20
+            console.log(`name : ${firstName} ${lastName} / age : ${age}`); // 백틱 안에서 띄어쓰기는 결과에 반영 됨
+            console.log('name : ' + firstName + lastName + ' / age : '+ age);
+            console.log('name : ',firstName,lastName,' / age : ',  age);
+            
+            // 변수 선언 없이 사용이 가능
+            // 선언 없이 사용하게 되면 전역에 영향을 미치므로 가급적 사용안하는게 좋음
+            mySecond = 10;
+            console.log(mySecond);
+
+            // 상수 : 한 번 선언되면 변경할 수 없는 값
+            // java에서 final과 같은 의미 const 대문자표기
+            const MY_FINAL = "HONG";
+            console.log(MY_FINAL);
+
+            // typeof : 해당 변수의 타입을 확인
+            // 기본 문법 : typeof 변수명
+            console.log(typeof myFirst); // 문자 : string
+            console.log(typeof number); // 숫자 : number
+            console.log(typeof num); // 값이 없으면 : undefined
+        </script>
+
+        <script>
+            console.log(myFirst);
+            // console.log(name3); 외부 스크립트 변수 (하단에 선언 인지안됨)
+        </script>
+        <script src="01_script.js"></script>
+        <script>
+            console.log(name3); // 외부 스크립트 변수 (상단에 선언 인지됨)
+        </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        dataType : 변수나 상수에 할당할 수 있는 값의 종류
+    </h1>
+    <!-- 
+        숫자 : number => 정수, 실수, NAN(NOT a Number : 숫자가 아님)
+        문자 : string => '', "", `` 들로 감싼 값들
+        불리언 : boolean => true / false
+        객체 : object => 1개 이상의 데이터가 특정 구조를 가지고 있는 형태
+            - {키 : 값} / {} : 아무것도 없는 객체도 1개의 객체로 취급
+        배열 : array => [1,2,3,4] 이런 형태의 집합
+            - java에서 list와 비슷한 형태 indext, length가 있다
+        알 수 없는 값 : null => 인지가 안됨
+        미지정 값 : undefined => 값이 할당되지 않음
+    -->
+
+    <script>
+        let num = 123;
+        let string = 'abc';
+        let bool = true;
+        let obj = {name : 'hong', age : 20};
+        let obj2 = new Object(); // js에서 제공하는 내장객체(자주 사용하진 않음)
+        let arr = [1,'2',[1,2,3],{}];
+        let arr2 = new Array(); // 얘도 내장 객체 사용가능(자주 사용하진 않음)
+        let undi = undefined;
+        let undi2;
+        let ne = null;
+
+        // typeof 변수명 / 변수명의 타입을 확인할 수 있음
+        console.log(typeof num);
+        console.log(typeof string);
+        console.log(typeof bool);
+        console.log(typeof obj);
+        console.log(typeof obj2);
+        console.log(typeof arr);
+        console.log(typeof arr2);
+        console.log(typeof undi);
+        console.log(typeof undi2);
+        console.log(typeof ne);
+        console.log(obj);
+        console.log(arr);
+    </script>
+    
+    <!-- 
+        기본자료형 : 값이 메모리의 주소값을 가르키는 곳에 직접 할당이 되어있는 값
+        number, boolean, string(참조자료형이지만 편의상 기본자료형처럼 사용)
+
+        참조자료형 : 값이 저장되어 있는 주소를 저장
+        string, array, object, function, null, undefined
+
+        ==(같다) !=(같지않다) => 값만 비교
+            123 == '123' => true
+        ===(값과 타입이 같다) !==(값과 타입이 같지않다) => 값+타입을 비교
+            123 === '123' => false
+    -->
+    <script>
+        let num1 = 10;
+        let num2 = '10';
+        console.log(num1 == num2); // true
+        console.log(num1 === num2); // false
+    </script>
+</body>
+</html>

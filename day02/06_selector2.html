@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        속성 선택자 : 태그가 가지고 있는 속성을 이용한 선택자
+        input 처럼 타입이 여러 종류인값을 선택할 때
+        태그명[속성=값]
+    -->
+    <style>
+        input[type=text]{
+            background-color: aqua;
+        }
+
+        input[type=password]{
+            background-color: brown;
+        }
+        button[type=button]{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+    <div><label for="ID">User ID</label><input type="text" id="id" name="id" placeholder="8자 이상" required></div>
+    <div><label for="ID">User PW</label> <input type="password" id="pw" name="pw" placeholder="8자 이상" required></div>
+    <div><label for="ID">User PIN</label> <input type="password" id="pin" name="pin" placeholder="숫자만" required></div>
+   <div> <button type="button">일반버튼</button>
+    <button type="submit">로그인</button>
+    <button type="reset">작성취소</button>
+    </div>
+    </form>
+</body>
+</html>

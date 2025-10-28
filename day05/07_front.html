@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="reset.css"> 이 방법도 가능 -->
+     <!-- 
+        width:100% => (부모의 or 부모가 없다면 화면의)전체 가로 
+        height:100% (부모의 100%) 세로가 없다면 적용 안됨
+        vh / vw : 모니터(브라우저) 기준 높이
+     -->
+     <style>    
+        @import url(reset.css); /* link를 css 내부로 이동*/
+        .container{
+            height: 100vh; /* 화면의 전체 */
+            background: linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.654)), url(../image/깔끔배경.jpg); /* 이미지 살짝 어둡게 하기 */
+            background-size: cover;
+        }
+        .container>.navbar{
+            width: 90%;
+            margin: 0 auto;
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .container>.navbar>h1{
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        .container>.navbar>ul{
+            display: flex;
+            justify-content: space-between;
+        }
+        .container>.navbar>ul>li{
+            margin: 0 10px;
+        }
+        .container>.navbar>ul>li>a{
+            color: white;
+            font-weight: 700;
+        }
+        .container>.navbar>ul>li>a:hover{
+            cursor: pointer;
+            color: rgb(248, 187, 75);
+        }
+        .container>.main{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+            color: white;
+        }
+        .container>.main>h2{
+            font-size: 50px;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+        .container>.main>a>button{
+            border: 2px solid rgb(221, 185, 131);
+            font-size: 20px;
+            font-weight: 700;
+            padding: 10px 20px;
+            border-radius: 10px;
+            background-color: rgb(238, 204, 152);
+            transition: 0.5s; /* 커서 갖다 대면 서서히 변화주기*/
+            color: white;
+        }
+        .container>.main>a>button:hover{
+            cursor: pointer;
+            background-color: rgb(136, 95, 18);
+            color: burlywood;
+        }
+     </style>
+</head>
+<body>
+    <div class="container">
+       <div class="navbar">
+        <h1>DESIGN</h1>
+        <ul>
+            <li><a href="">HOME</a></li>
+            <li><a href="">LOGIN</a></li>
+            <li><a href="">SIGNUP</a></li>
+            <li><a href="">BOARD</a></li>
+        </ul>
+       </div>
+       <div class="main">
+        <h2>Welcome to Front-End World</h2>
+        <a href=""><button>Learn More</button></a>
+       </div>
+    </div>
+</body>
+</html>

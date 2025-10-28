@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .header{
+            height: 60px;
+            background-color: gray;
+            font-weight: 800;
+            font-size: 20px;
+            transform: translate(5,15);
+        }
+        .main-img{
+            width: 100%;
+            height: 400px;
+            background-image: url(../image/사막.jpg);
+             background-size: cover;
+        }
+        .discription{
+            background-color: aliceblue;
+            height: 250px;
+        }
+        p{
+            padding: 10px;
+        }
+        .discription>#mintext{
+            margin: 0;
+            font-size: 12px;
+            font-weight: 700;
+            color: gray;
+        }
+        .discription>#title{
+            font-size: 15px;
+            font-weight: 700;
+        }
+        .sub-img1{
+            height: 300px;
+            background-image: url(../image/핸드백.jpg);  
+            background-size: cover; /* 사진 사이즈 안 맞으면 늘리기*/     
+        }
+        .sub-img2{
+            height: 300px;
+            background-image: url(../image/대교.jpg);
+            background-size: cover;
+            text-align: center;
+            position: relative;
+        }
+        a{
+            border: 4px solid white;
+            color: white;
+            position: absolute;
+            left: 50%;
+            top: 70%;
+            text-decoration: none;
+            padding: 10px 40px;
+        }
+        .sub-img3{
+            height: 300px;
+            background-image: url(../image/벚꽃.jpg);
+            background-size: cover;
+        }
+        @media screen and (min-width : 800px){
+            .header{
+            height: 60px;
+            background-color: gray;
+            font-weight: 800;
+            font-size: 20px;
+            transform: translate(5,15);
+            }
+            .main-img{
+                width: 50%;
+                height: 800px;
+                float: left;
+            }
+            .discription{
+                width: 50%;
+                height: 400px;
+                float: right;
+            }
+            .sub-img1{
+                width: 25%;
+                height: 400px;
+                float: left;
+            }
+            .sub-img2{
+                width: 25%;
+                height: 200px;
+                float: right;
+            }
+            .sub-img3{
+                width: 25%;
+                height: 200px;
+                float: right;
+                line-height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">IN'o</div>
+    <div class="main-img">
+    </div>
+    <div class="discription">
+        <p id="mintext">Portfolio</p>
+        <p id="title">Make Hardware Soft</p>
+        <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also</p>
+    </div>
+    <div class="sub-img1">
+    </div>
+    <div class="sub-img2">
+        <a href="https://terms.naver.com/entry.naver?docId=5781979&cid=62861&categoryId=62861" target="_blank">VIEW MORE</a>
+    </div>
+    <div class="sub-img3"></div>
+</body>
+</html>

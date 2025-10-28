@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .p-box{
+            width: 200px;
+            background-color: antiquewhite;
+            float: left;
+        }
+        .box{
+            border: 1px solid black;
+            width: 200px;
+            height: 50px;  
+            text-align: center;
+            box-sizing: border-box;
+            line-height: 50px;
+        }
+        a{
+             text-decoration: none;
+        }
+        .일본{
+            color: red;
+            background-color: white;
+        }
+        .일본:hover{
+            background-color: rgb(221, 219, 219);
+        }
+        .도쿄{
+            color: white;
+            background-color: red;
+        }
+        .도쿄:hover{
+            background-color: rgb(198, 1, 1);
+        }
+        .관광안내{
+            color: red;
+            background-color: white;
+        }
+        .관광안내:hover{
+            background-color: rgb(221, 219, 219);
+        }
+        .티켓팅안내{
+            color: white;
+            background-color: red;
+        }
+        .티켓팅안내:hover{
+            background-color: rgb(198, 1, 1);
+        }
+        .img{
+            float: right;
+            position: relative;
+        }
+        .img:hover{
+            transform: scale(0.9);
+        }
+        .click{
+            color: antiquewhite;
+            position: absolute;
+            bottom: 50px;
+            right: 82px;
+        }
+    </style>
+</head>
+<body>
+    <div class="p-box">
+    <a href="https://namu.wiki/w/%EC%9D%BC%EB%B3%B8" target="_blank"><div class="box 일본">일본</div></a>
+    <a href="https://travel.naver.com/overseas/JPTYO298184/city/summary" target="_blank"><div class="box 도쿄">도쿄란?</div></a>
+    <a href="https://www.japan.travel/ko/kr/" target="_blank"><div class="box 관광안내">관광안내</div></a>
+    <a href="https://kr.trip.com/" target="_blank"><div class="box 티켓팅안내">티켓팅안내</div></a>
+    </div>
+    <a href="https://www.tokyotower.co.jp/" target="_blank"><div class="img"><img src="../image/도쿄.jpg" alt="도쿄" width="1510px" height="850px"></div></a>
+    <div class="click"><small>이미지 클릭시 이동</small></div>
+</body>
+</html>

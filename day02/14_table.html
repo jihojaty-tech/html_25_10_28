@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            width: 70%;
+            text-align: center;
+            border-collapse: collapse; /* 테이블에 중복되는 선 합치기*/
+        }
+        table th,td{
+            /*border: 1px solid black; 전체선 삭제*/
+            height: 30px; /* 세로로 늘리기*/
+            border-right: none;
+            border-left: none;
+        }
+        table>caption{
+            font-size: 20px;
+            margin: 20px;
+        }
+        table>thead{
+            border-top: 2px double  rgb(201, 201, 181);
+            border-bottom: 2px double rgb(201, 201, 181);
+        }
+        table>thead>tr{
+            background-color: beige;
+        }
+        tfoot{
+            border-top: 2px double burlywood;
+            border-bottom: 2px double burlywood;
+            background-color: blanchedalmond;
+        }
+
+        tbody>tr:nth-child(even){ /* tbody의 짝수 라인에 색 변경*/
+            background-color: rgb(218, 203, 184);
+        }
+        table>tbody>tr:hover{ /* 마우스를 갖다대면 색이 변경*/
+            background-color: rgb(208, 225, 192);
+            color: black;
+        }
+    </style>
+</head>
+<body>
+     <table>
+        <caption>성적표</caption>
+        <thead>
+        <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <th>성적</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>김민수</td>
+            <td>78</td>
+        </tr>
+            <td>2</td>
+            <td>김영희</td>
+            <td>96</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>박철수</td>
+            <td>85</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>홍길동</td>
+            <td>45</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>박민지</td>
+            <td>69</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <th colspan="2">합계</th>
+            <th>???</th>
+        </tr>
+        </tfoot>
+</table>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>타입 변환 casting(형변환)</h1>
+    <!-- 
+        문자 -> 숫자 : 
+            Number() : 숫자로 변환 가능한 문자 , parseInt() : 정수, parseFloat() : 실수
+        문자 -> boolean : 
+            Boolean("true")
+
+        숫자 -> 문자 : 
+            123.toString()
+        숫자 -> boolean : 
+            Boolean(1) : true / Boolean(0) : false 0과 1만 넣을 수 있음
+
+        boolean -> 문자 : 
+            String(true)
+        
+        boolean
+        - 일반적인 데이터 타입 중 값(띄어쓰기포함)이 있는 개념은 모두 true
+        - 정확히 정의되지 않은 개념은 모두 false
+            ex) 0, 빈 문자열 띄어쓰기도 안됨('',"",``), undefined, null, NaN
+
+        Boolean("value")
+        if, 조건문 값에 대입하여 판단할 때 사용
+        if(name){
+            name에 대한 값이 있다면 true
+        }
+    -->
+
+    <script>
+        console.log(String(true),typeof String(true)); // boolean -> 문자
+        console.log(Boolean(" "), typeof Boolean(null)); // 문자 -> boolean
+        console.log(Number(true), typeof Number(true));
+        console.log();
+    </script>
+</body>
+</html>

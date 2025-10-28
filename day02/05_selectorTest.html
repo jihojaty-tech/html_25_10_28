@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .testnaver1{
+            color: greenyellow;
+        }
+        ol{
+            list-style: none; /* 번호 없애기*/
+            padding: 0; /*옆으로 밀착*/
+        }
+
+        ol>li{
+            font-size: 20px;
+            display: inline; /* block tag 성격을 inline으로 변경 옆으로 눕히기*/
+            margin: 10px; /* 글자 사이에 여백 주기 */
+        }
+        ol>li:nth-child(even){
+            color: red;
+        }
+        ol>li:nth-child(3n){
+            color: green;
+        }
+        ol>li:first-child, li:last-child{
+            font-weight: 700;
+        }
+        ol>li::after{
+            content: " / ";
+        }
+        ol>li:not(last-child)::after{ /* 마지막요소는 빼고 적용*/
+            content: "";
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <a href="http://www.naver.com" target="_blank" style="color: rgb(4, 233, 4);">naver</a>
+    </div>
+    <div>
+        <a href="http://www.google.com" target="_blank" style="color: black;">google</a>
+    </div>
+    <div>
+        <a href="http://www.daum.net" target="_blank" style="color: rgb(13, 13, 203);">daum</a>
+    </div>
+
+    <!-- 
+        div를 3개 만들어
+        naver, google, daum 사이트에 연결되게 하고
+        각각 다른색 글자로 만들어 주기
+
+        :first-child / :last-child => 첫번째 요소 / 마지막 요소
+        ::after / ::before => ~뒤에 / ~ 앞에 가상요소를 삽입
+    -->
+    
+    <!-- div 범위를 클릭하면 naver로 접속하는 방법 -->
+    <a class= "testnaver1" href="http://naver.com" target="_blank"><div>naver</div></a>
+
+
+    <!-- 
+        전체 글자 크기 20px
+        짝수만 빨간색
+        3,6,9 : 초록색
+        1,10 : 굵게
+    -->
+    <ol>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+    </ol>
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        object(객체) : 식별할 수 있는 것을 상세 특징으로 표현하려한 형식
+    </h1>
+    <!-- 
+        const 상수로 선언하는 것이 일반적 : 객체의 지속성을 확보하기 위함
+        {} 안에 key : value 
+         {
+            key : value,
+            key : value,
+            key : value        
+         }
+        - key 값은 같은 객체 내에서는 중복 안됨 (고유 키)
+        - value는 중복 가능
+        - 객체 내부의 속성(value)의 값으로 사용할 수 있는 데이터 타입은 제한이 없음
+        - key는 일반적으로 string
+        - value의 값으로 익명함수를 정의하면 그 함수를 메서드라고 부름
+        - key 값이 그 함수의 이름이 됨 
+    -->
+    <script>
+        const car = {name : 'myCar', year : 2025};
+        // car = 100; //불가능
+        // 선언한 객체를 지킬 수 있음 - 지속성 확보
+
+        let myCar = {name : 'myCar', year : 2025};
+        myCar = 100; // myCar의 객체는 사라짐, 객체를 선언하고 활용하려는 목적을 잃기에 let으로는 사용하지 않음
+    </script>
+
+    <script>
+        const me = {
+            firstName : '홍',
+            lastName : "길동",
+            age : 20,
+            address : 'seoul',
+            "hobby" : "독서",
+            avail : {
+                year : 2025,
+                title : 'javascript',
+                ver : 'ES6+',
+                project : 'javaScript project',
+                intro : function(){
+                    console.log('객체 내부에 선언된 함수');
+                    console.log(me.firstName); // firstName은 내 객체에 없기에 this를 넣으면 찾지 못하고 me에서 찾아야 실행가능
+                    return `${this.title} : ${this.ver}`;
+                }
+            },
+            year : 2022
+        };
+
+        console.log(me);
+        // 주소
+        console.log(me.address);
+        console.log(me.avail.title);
+        console.log(me.avail.intro); // 실행이 아니라 함수를 지목해서 출력
+        console.log(me.avail.intro()); // 실행하려면 ()로 호출을 해야 실행 가능
+
+        console.log("------------------------");
+        // 객체명.key => value 값을 리턴해줌
+        let keyName = "age";
+        console.log(me[keyName]);
+        console.log(me["firstName"]); // me[keyString] 
+
+        console.log(me.avail["title"]);
+        console.log(me["avail"]["title"]);
+        console.log(me["avail"].title);
+        console.log(me["avail"]["intro"]()); // key를 string으로 이렇게 변경해야 대괄호에 키를 넣고 출력이 가능
+
+        console.log("-----------------------");
+    </script>
+    
+    <script>
+        // 좋아하는 가수의 정보를 담은 객체 생성 => 출력
+        // 이름,나이, playlist :{} => 객체로 노래 3개 담기, jukebox( playlist 콘솔 출력 함수) 주크박스를 실행하면 play리스트를 출력하는 함수도 담기
+
+        const idol = {
+            name : "강해린",
+            age : 20,
+            groupName : "뉴진스",
+            height : 164,
+            playList : {
+                titleName1 : "OMG",
+                titleName2 : "ETA",
+                titleName3 : "How Sweet",
+                jukebox : function(){
+                    console.log("내가 좋아하는 가수 playList");
+                    return ` 노래1 : ${this.titleName1}, 노래2 : ${this.titleName2}, 노래3: ${this.titleName3}`;
+                }
+            }
+        };
+        // 함수를 밖으로 빼는 방법
+
+        const idol1 = {
+            name1 : "강해린",
+            age1 : 20,
+            groupName1 : "뉴진스",
+            height1 : 164,
+            playList1 : {
+                titleName11 : "OMG",
+                titleName22 : "ETA",
+                titleName33 : "How Sweet",
+                },
+            jukebox : function(p1,p2,p3){
+                console.log(p1,p2,p3);
+                console.log(this.playList1.titleName11, this.playList1.titleName22, this.playList1.titleName33);
+            }
+        };
+        
+        // 1번째 객체 실행
+        console.log(idol.playList.jukebox());
+        console.log(idol.name);
+        let key = "groupName";
+        console.log(idol[key]);
+        console.log(idol["playList"]["jukebox"]());
+
+        // 2번째 객체 실행
+        let p1 = "hype boy";
+        let p2 = "super shy";
+        let p3 = "ditto";
+        console.log(idol1.name1 + idol1.age1);
+        console.log(p1,p2,p3);
+    </script>
+</body>
+</html>

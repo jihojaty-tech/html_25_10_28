@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url(reset.css);
+        .container{
+            height: 100vh;
+            background-size: cover;
+        }
+        .container>.logo{
+            width: 95%;
+            margin: 0px auto;
+            display: flex;
+            height: 80px;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .container>.logo>h1{
+            font-size: 50px;
+            font-weight: 700;
+            color: beige;
+        }
+        .container>.logo>ul{
+            display: flex;
+            justify-content: space-between;
+        }
+        .container>.logo>ul>li{
+            margin: 15px;
+        }
+        .container>.logo>ul>li>a{
+            color: bisque;
+            font-weight: 400;
+            transition: 0.5s;
+        }
+        .container>.logo>ul>li>a:hover{
+            cursor: pointer;
+            color: red;
+        }
+        .container>.main>.main-img{
+            height: 400px;
+            background-image: url(../image/도쿄.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+        .container>.main>h1{
+            text-align: center;
+            color: darkgrey;
+        }
+        .container>.main>h1{
+         margin: 30px;
+        }
+       .container>.main>.product{
+        width: 1200px;
+        height: 300px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+       }
+       .container>.main>.product .apt{
+        
+            color:burlywood
+       }
+       .container>.main>.product>a>.apt>h4{
+        margin: 20px;
+       }
+       .apt:hover{
+        transform: scale(1.1,1.1);
+       }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1>Brokerag</h1>
+            <ul>
+                <li><a href="">For Sale</a></li>
+                <li><a href="">For Rent</a></li>
+                <li><a href="">LOGIN</a></li>
+                <li><a href="">SIGNUP</a></li>
+                <li><a href="">My Page</a></li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="main-img"></div>
+            <h1>Apartments</h1>
+            <div class="product">
+                <a href="https://map.naver.com/p/search/%ED%99%94%EC%84%B1%20%EB%8C%80%EB%8F%99%EB%B6%80%EB%8F%99%EC%82%B0/place/1834718702?placePath=/home?entry=pll&from=nx&fromNxList=true&from=map&fromPanelNum=2&timestamp=202510201745&locale=ko&svcName=map_pcv5&searchText=%ED%99%94%EC%84%B1%20%EB%8C%80%EB%8F%99%EB%B6%80%EB%8F%99%EC%82%B0&from=nx&fromNxList=true&searchType=place" target="_blank">
+                    <div class="apt">
+                        <img src="../image/강남아파트.jpg" alt="" width="200px" height="200px">
+                        <h4>강남 역세권 34평 아파트</h4>
+                        <p>분양가 21억4000</p>
+                    </div>
+                </a>
+                <a href="https://map.naver.com/p/search/%ED%99%94%EC%84%B1%20%EB%8C%80%EB%8F%99%EB%B6%80%EB%8F%99%EC%82%B0/place/1834718702?placePath=/home?entry=pll&from=nx&fromNxList=true&from=map&fromPanelNum=2&timestamp=202510201745&locale=ko&svcName=map_pcv5&searchText=%ED%99%94%EC%84%B1%20%EB%8C%80%EB%8F%99%EB%B6%80%EB%8F%99%EC%82%B0&from=nx&fromNxList=true&searchType=place" target="_blank">
+                    <div class="apt">
+                        <img src="../image/서초아파트.jpg" alt="" width="200px" height="200px">
+                        <h4>서초 역세권 34평 아파트</h4>
+                        <p>분양가 18억7600</p>
+                    </div>
+                </a>
+                <a href="https://map.naver.com/p/search/%ED%99%94%EC%84%B1%20%EB%8C%80%EB%8F%99%EB%B6%80%EB%8F%99%EC%82%B0/place/1834718702?placePath=/home?entry=pll&from=nx&fromNxList=true&from=map&fromPanelNum=2&timestamp=202510201745&locale=ko&svcName=map_pcv5&searchText=%ED%99%94%EC%84%B1%20%EB%8C%80%EB%8F%99%EB%B6%80%EB%8F%99%EC%82%B0&from=nx&fromNxList=true&searchType=place" target="_blank">
+                    <div class="apt">
+                        <img src="../image/잠실아파트.jpg" alt="" width="200px" height="200px">
+                        <h4>잠실 역세권 34평 아파트</h4>
+                        <p>분양가 19억1000</p>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

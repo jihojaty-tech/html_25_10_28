@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset>
+        <legend>생년월일 확인</legend>
+        이름 : <input type="text" id="name"> <br>
+        주민번호 : <input type="text" id="rNum"> <br>
+        <button type="button" id="btn">확인</button>
+        <!-- 이름,생년월일,나이,성별 출력 -->
+        <h3 id="result"></h3>
+    </fieldset>
+
+    <script>
+        document.getElementById('btn').addEventListener('click',()=> {
+            const printResult = document.getElementById('result');
+            let name = document.getElementById('name').value;
+            let rNum = document.getElementById('rNum').value;
+
+            // 생년월일, 나이, 성별
+            let birth = rNum.substring(0,rNum.indexOf("-"));
+            console.log(birth);
+
+            let getNum = rNum.charAt(6);
+            // 성별
+            let gender = (getNum == '1' || getNum == '3')? '여' : '남';
+            console.log(gender);
+
+            // 나이 오늘날짜년도 - 태어난 년도 
+            const today = new Date();
+            let todayYear = today.getFullYear();
+            let birthYear = Number(birth.substring(0,2));
+            let age = getNum <= 2 ? todayYear - (1899+birthYear) : todayYear - (1999+birthYear);
+            console.log(age);
+            
+            printResult.innerHTML = `이름 : ${name}, 생년월일 : ${birth}, 나이 : ${age}, 성별 : ${gender}`;
+        })
+        
+        
+    </script>
+</body>
+</html>

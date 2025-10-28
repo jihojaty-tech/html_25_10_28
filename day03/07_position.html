@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 부모 150 작은 네모 100 큰네모 300 -->
+     <style>
+        .p-box{
+            width: 100%;
+            height: 150px;
+            position: relative;
+            background-color: black;
+        }
+        .box1{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            background-color: green;
+            top: 25px;
+            left: 25px;
+        }
+        .box2{
+             width: 100px;
+            height: 100px;
+            position: absolute;
+            background-color: yellow;
+            top: 25px;
+            left: 50%;
+            transform: translate(-50%); /* 절반의 중심 앞쪽 */
+            /* transfomr : translate(x축, y축) */
+        }
+        .box3{
+             width: 100px;
+            height: 100px;
+            position: absolute;
+            background-color: red;
+            top: 25px;
+            right: 25px; 
+        }
+        /* 마진 상쇄 효과 (margin collapsing) 
+            - 부모 요소에 padding-top, border-top을 추가하면 부모와 자식요소가 분리되어 마진이 들어감
+            - 부모 요소에 overflow:hidden을 추가하면 마진 상쇄 효과를 방지
+        */
+
+        .outer{
+            width: 300px;
+            height: 300px;
+            background-color: blue;
+            /* block속성 태그 일 경우
+            margin: 0 auto;
+            overflow: hidden;
+            */
+            position: relative;
+        }
+        .inner{ 
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+     </style>
+</head>
+<body>
+    <div class="p-box">
+        <div class="box box1"></div>
+        <div class="box box2"></div>
+        <div class="box box3"></div>
+    </div>
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+</body>
+</html>
