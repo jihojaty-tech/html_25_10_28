@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 500px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        가위바위보 이미지를 버튼 태그에 넣어 선택하여 가위바위보의 승률 계산
+    -->
+        <button onclick="play(0)"><img src="../image/가위바위보(가위1).jpg" alt=""></button>
+        <button onclick="play(1)"><img src="../image/가위바위보(바위).jpg" alt=""></button>
+        <button onclick="play(2)"><img src="../image/가위바위보(보).jpg" alt=""></button>
+
+        <h1 id="result">진행중...</h3>
+    
+    <script>
+        // 전역변수 결과 변수
+        // let win = 0;
+        // let draw = 0;
+        // let lose = 0;
+        
+        const resultCount = {
+            win:0,
+            draw:0,
+            lose:0
+        };
+        function play(player){
+            const playStr = ['가위','바위','보'];
+            let com = randomNumber();
+            let result = getWinner(player,com);
+            
+            if(result == 'win'){
+                win++;
+            }else if (result =='draw'){
+                draw++;
+            } else{
+                lose++;
+            }
+            resultCount[result]++;
+            
+            // 결과 출력
+            let str = `player : ${playStr[player]} / com : ${playStr[com]} \n`;
+            str += `player ${result}\n`;
+            str += `현재 전적 \n`;
+            str += `win : ${resultCount.win} / draw : ${resultCount.draw} / lose : ${resultCount.lose}\n`;
+            str += `승률 : ${getWinRate().toFixed(2)}%`;
+    
+            document.getElementById('result').innerText = str;
+        }
+
+        // 승률 계산 함수
+        function getWinRate(){
+            let sum = resultCount.win + resultCount.draw + resultCount.lose;
+            return resultCount.win != 0 ? ( resultCount.win / sum - resultCount.draw)*100 : 0;
+        }
+
+        // 랜덤값 리턴 함수
+        function randomNumber(){
+            return Math.floor(Math.random()*3);
+        }
+
+         // 승 무 패 리턴하는 함수
+        function getWinner(userChoice, comChoice){
+            if(userChoice == comChoice){
+                return 'draw';
+            } else if((userChoice == 1 && comChoice == 2) || (userChoice == 2 && comChoice == 0) || userChoice == 3 && comChoice == 1){
+                return 'win';
+            }else{
+                return 'lose';
+            }
+        }
+
+    </script>
+</body>
+</html>
