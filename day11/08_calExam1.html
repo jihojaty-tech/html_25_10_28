@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 500px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        .area {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            
+        }
+
+        button {
+            height: 100px;
+            font-size: 30px;
+            padding: 15px;
+            border-radius: 30px;
+            background-color: aqua;
+            
+        }
+        
+        button:hover{
+            cursor: pointer;
+            background-color: rgb(2, 167, 167);
+        }
+        h1 {
+            background: skyblue;
+            color: red;
+            padding: 10px;
+            height: 80px;
+            margin-bottom: 10px;
+            border-radius: 30px;
+        }
+        .area>.C{
+            height: 80px;
+            background: blue;
+            color: white;
+            grid-column: span 4; /* 4열 모두 차지 */
+        }
+        .area>.C:hover{
+            cursor: pointer;
+            background-color: rgb(3, 3, 181);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="printResult"></h1>
+        <div class="area">
+            <button type="button" value="7">7</button>
+            <button type="button" value="8">8</button>
+            <button type="button" value="9">9</button>
+            <button type="button" value="+">+</button>
+            <button type="button" value="4">4</button>
+            <button type="button" value="5">5</button>
+            <button type="button" value="6">6</button>
+            <button type="button" value="-">-</button>
+            <button type="button" value="1">1</button>
+            <button type="button" value="2">2</button>
+            <button type="button" value="3">3</button>
+            <button type="button" value="*">*</button>
+            <button type="button" value=".">.</button>
+            <button type="button" value="0">0</button>
+            <button type="button" value="=">=</button>
+            <button type="button" value="/">/</button>
+            <button type="button" class="C" value="C">C</button>
+        </div>
+    </div>
+    
+    <script>
+        const btn = document.getElementsByClassName('area');
+        console.log(btn);
+    </script>
+</body>
+</html>

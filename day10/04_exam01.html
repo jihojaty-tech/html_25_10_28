@@ -15,13 +15,21 @@
     <!-- 
         가위바위보 이미지를 버튼 태그에 넣어 선택하여 가위바위보의 승률 계산
     -->
-        <button onclick="play(0)"><img src="../image/가위바위보(가위1).jpg" alt=""></button>
-        <button onclick="play(1)"><img src="../image/가위바위보(바위).jpg" alt=""></button>
-        <button onclick="play(2)"><img src="../image/가위바위보(보).jpg" alt=""></button>
+        <button onclick="play(0)"><img id="0" src="../image/가위바위보(가위1).jpg" alt=""></button>
+        <button onclick="play(1)"><img id="1" src="../image/가위바위보(바위).jpg" alt=""></button>
+        <button onclick="play(2)"><img id="2" src="../image/가위바위보(보).jpg" alt=""></button>
 
         <h1 id="result">진행중...</h3>
     
     <script>
+
+        document.addEventListener('click',(e) => {
+            // 동적으로 생기는 모든 객체에 이벤트 추가기능
+            // 모든 화면에 이벤트가 달림
+            console.log(e.target.id);
+            play(e.target.id);
+        })
+
         // 전역변수 결과 변수
         // let win = 0;
         // let draw = 0;

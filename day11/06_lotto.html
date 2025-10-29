@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>set을 이용한 로또 만들기</h1>
+    <button id="makeRandom">랜덤번호 6자리 생성(출력)</button>
+    <h1 id="printNum">로또번호 출력</h1>
+    <button id="makeRandom2">당첨번호 7자리 생성(출력)</button>
+    <h1 id="printNum2">당첨번호 출력</h1>
+    <button id="ranking">당첨 확인</button>
+    <h3 id="printResult">당첨여부 출력</h3>
+
+    <script>
+        // 1~45까지 6자리 선택 : 사용자 번호
+        const lottoArr = [];
+
+        // 1~45까지 7자리 : (6자리 + 보너스) => 당첨번호
+        const rNumArr = [];
+        let bonus = 0; // 보너스 번호 넣는 용도
+
+        document.getElementById('makeRandom').addEventListener('click',()=> {
+            // 기존 배열에 값이 있다면 그 배열에 값을 지우기
+            // set.clear() : set 비우기
+            // splice(index, count) : index부터 count개 만큼 삭제하고, 다른 내용으로 변경
+            lottoArr.splice(0); // 0부터 끝까지 삭제
+            randomNum(lottoArr, 6);
+            document.getElementById('printNum').innerText = lottoArr.sort((a,b) => a -b);
+        });
+
+        document.getElementById('makeRandom2').addEventListener('click',()=>{
+            rNumArr.splice(0);
+            randomNum(rNumArr,7);
+            // 보너스 번호 추출
+            bonus = rNumArr.pop();
+            document.getElementById('printNum2').innerText = `${rNumArr} [${bonus}]`;
+        });
+
+        document.getElementById('ranking').addEventListener('click',ranking);
+
+        function ranking(){
+            let cnt = 0;
+            lottoArr.forEach(v => {
+                if(rNumArr.includes(v)){
+                    cnt++;
+                }
+            });
+            console.log(cnt);
+
+            let print = '';
+            switch(cnt){
+                case 6 : print = '축하합니다!! 1등~!!'; break;
+                case 5 : 
+                        lottoArr.includes(bonus)? print= '축하합니다! 2등~!' : print = '축하합니다. 3등!';
+                        break;
+                case 4 : print = '4등!'; break;
+                case 3 : print = '5등~'; break;
+                default : print = '꽝!!'; break;
+            }
+            document.getElementById('printResult').innerText = print;
+        }
+
+        function randomNum(arr, num){
+            const set = new Set();
+            while(set.size < num){
+                let num = Math.floor(Math.random()*45)+1;
+                set.add(num);
+            }
+            set.forEach(v => arr.push(v));
+        }
+    </script>
+</body>
+</html>

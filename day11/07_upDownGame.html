@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        1~99까지의 숫자 중 하나를 랜덤으로 선택하여 해당 숫자를 맞추는 게임
+    -->
+
+        <div>
+        <button id="random">랜덤 숫자 생성 버튼</button>
+        <button id="re">다시시도</button>
+        <h1 id="printMsg"></h1>
+        </div>
+
+        <div>
+            <input type="text" id="myNum">
+            <button id="compareNum">제출!</button>
+            <h1 id="result"></h1>
+        </div>
+        
+        <script>
+            let str = '';
+            let cnt = 0;
+            let comNum = 0;
+            // 새로고침 (다시시도)
+            document.getElementById('re').addEventListener('click',()=>{
+                window.location.reload(); // 새로고침
+                location.reload(); // window는 생략 가능
+            })
+            
+            function randomNum(){
+                return Math.floor(Math.random()*99)+1;
+            }
+            
+            document.getElementById('random').addEventListener('click',()=>{
+                document.getElementById('printMsg').innerText = '랜덤수가 생성되었습니다(1~99)';
+                comNum = randomNum();
+                console.log(comNum);
+            })
+            
+            document.getElementById('compareNum').addEventListener('click',()=>{
+                const myNum = Number(document.getElementById('myNum').value);
+                
+                    if(cnt == 5){
+                        document.getElementById('result').innerText += '도전횟수 초과입니다\n';
+                        return;
+                    }
+                    if(myNum > 0 && myNum < 100){
+                        if(myNum == comNum){
+                            str = '정답입니다!!';
+                        }else if (myNum < comNum){
+                            str = 'UP!';
+                        }else if(myNum > comNum){
+                            str = 'DOWN!';
+                        }
+                        cnt++;
+                    } else{
+                        str = alert('1~99까지의 숫자만 입력해주세요');
+                        return;
+                    }
+                
+                document.getElementById('result').innerText += `도전횟수 : ${cnt} / 내가 입력한 수 :  ${myNum} ${str}\n`;
+            });
+
+        </script>
+</body>
+</html>
