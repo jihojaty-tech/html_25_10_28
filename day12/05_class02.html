@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        class Car{
+            // private 필드 선언 ES2022버전부터 가능
+            #power = false; // 시동 true가 켜짐
+            #speed = 0; // 현재 속도
+
+            constructor(name, year){
+                this.name = name;
+                this.year = year;
+            }
+
+            get power(){
+                return this.#power;
+            }
+            get speed(){
+                return this.#speed;
+            }
+
+            set speed(value){
+                this.#speed = value;
+            }
+            // 시동켜기
+            start(){
+                if(this.#power){
+                    console.log(`${this.name}의 시동이 이미 켜져있습니다.`);
+                }else if(this.#speed > 0){
+                    console.log('속도를 멈추고 시동을 꺼주세요.');
+                }else{
+                    this.#power = true;
+                    console.log(`${this.name}의 시동이 켜졌습니다.`);
+            }
+        }
+            // 시동 끄기
+            stop(){
+                if(!this.#power){
+                    console.log(`${this.name}의 시동이 이미 꺼져있습니다.`);
+                }else if(this.#speed > 0){
+                    console.log('속도를 멈추고 시동을 꺼주세요.');
+                }else {
+                    this.#power = false;
+                    console.log(`${this.name}의 시동이 꺼졌습니다.`);
+                }
+            }
+        
+        // 속도 + 
+        speedUp(){
+            if(!this.#power){
+                console.log('시동을 먼저 켜주세요.');
+                return;
+            }
+            this.#speed += 10;
+            console.log('현재 속도 : ' + this.#speed);
+        }
+        // 속도 -
+        speedDown(){
+            if(!this.#power){
+                console.log('시동을 먼저 켜주세요.');
+                return;
+            }
+            if(this.#speed == 0){
+                console.log('이미 멈춰있습니다.');
+                return;
+            }
+            if(this.#speed <= 0){
+                this.#speed = 0;
+            } else{
+                this.#speed -= 10;
+                console.log('현재 속도 : ' + this.#speed);
+            }
+        }
+        
+        // status()
+        status(){
+            console.log(`차량명 : ${this.name} (${this.year}) / power : ${this.#power? '켜짐' : '꺼짐'}`);
+        }
+  
+        }
+
+        const myCar = new Car('sonata',2023);
+        console.log(myCar);
+        myCar.status(); // 초기상태 호출
+        myCar.start();
+        myCar.speedUp();
+        myCar.speedUp();
+        myCar.speedUp();
+        myCar.speedUp();
+        myCar.speedDown();
+        myCar.speedDown();
+        myCar.speedDown();
+        myCar.speedDown();
+        myCar.speedDown();
+        myCar.stop();
+        console.log(myCar);
+
+        console.log(myCar.power); // getter 호출
+
+        // setter를 이용하여 #speed에 값을 추가
+        // myCar.speed(100); // typeError : speed() 메서드가 없다고 뜸
+        myCar.speed = 100; // setter에 값을 추가
+        console.log(myCar.speed); // getter 호출
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        class : js에서도 class 생성이 가능함
+    </h1>
+    <!-- 
+        클래스 생성 기본 문법
+        class myClass{
+            // 생성자 (없어도 되긴함)
+            consturctor(param){
+                ...
+            }
+
+            //메서드 정의
+            methodName(param){
+                ... (메서드를 여러개 만들 수 있음)
+            }
+
+            // getter / setter => 많이 사용하지는 않고 생성자와 마찬가지로 없어도 됨
+            get name(){
+            return this. name; 
+            }
+            set name(value){
+                this.name = value;    
+            }
+        }
+
+        new myClass(); // 생성자로 생성
+    -->
+
+    <script>
+        // class 의 이름은 대문자로 시작하는게 원칙
+        class Car{
+            // js에서는 생성자는 1개만 가능
+            constructor(name,year){
+                this.name = name;
+                this.year = year;
+                this.model = '';
+            }
+        }
+
+        const myCar1 = new Car('sonata', 2024);
+        myCar1.model = 'XG';
+        console.log(myCar1);
+
+        const myCar2 = new Car('그랜저',2025);
+        myCar2.model = '더 뉴';
+        console.log(myCar2);
+
+        const myCar3 = new Car();
+        myCar3.name = '아반떼';
+        myCar3.year = '2022';
+        myCar3.model = 'XD';
+        console.log(myCar3);
+    </script>
+</body>
+</html>

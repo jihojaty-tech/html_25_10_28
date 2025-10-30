@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // class로 User 생성
+        // 생성자로 name,birth를 받아서 멤버변수(this)로 저장
+        // get age() : 오늘날짜년도 기준 나이를 리턴하는 getter 만들기
+        // status() : 성인인지 미성년자인지를 콘솔에 출력하는 메서드 만들기
+
+        // 2명의 객체를 생성해서 콘솔에 출력
+
+        class User{
+            constructor(name,birth){
+                this.name = name;
+                this.birthday = birth;
+            }
+
+            // 나이 구하는 메서드
+            get age(){
+                    // 오늘 날짜 년도 - 생일 날짜 년도
+                    let birthDay = new Date(this.birthday).getFullYear();
+                    let today = new Date().getFullYear();
+                    return Number(today - birthDay);
+                }
+                
+                
+                status(){
+                    if(this.age > 19){
+                        console.log(`${this.name}님의 나이는 ${this.age}세 이고, 성인입니다.`);
+                    } else{
+                        console.log(`${this.name}님의 나이는 ${this.age}세 이고, 미성년자입니다.`);
+                    }
+                }
+                
+            }
+        
+
+        const person1 = new User('kim','2003-09-23');
+        console.log(person1);
+        person1.age;
+        person1.status();
+        const person2 = new User('lee', '2009.01.04');
+        console.log(person2);
+        person2.age;
+        person2.status();
+        '❌ ✔ 🙆 🙅‍♂️'
+        
+    </script>
+</body>
+</html>

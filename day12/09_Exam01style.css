@@ -1,0 +1,15 @@
+body{
+    margin-top: 30px;
+}
+.container{
+    margin-bottom: 50px;
+}
+
+.container>ol>li>input{
+    font-weight: 700;
+    height: 20px;
+    background-color: beige;
+}
+#correct{
+    margin-bottom: 20px;
+}
