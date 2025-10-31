@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        해체(Distructing), 펼침(Spread)
+        : 자바스크립트의 데이터를 좀 더 유연하게 사용하기 위한 문법 (ES2018부터 적극권장)
+    </h1>
+
+    <script>
+        // distructing
+        let arr = ['a','b','c','d','e'];
+
+        let first1 = arr[0];
+        let second1 = arr[1]; 
+        // 위와 같은 구조를 편리하게 하기 위해서
+
+        // ★ five='z'는 옵셔널 파라미터 역할을 해서 기존 값으로 출력됨
+        let [first,second,third,fourth, five='z'] = arr; // 이 방법이 distructing이라고 한다
+        console.log(first, second, third, fourth, five); 
+        
+        // rest 파라미터도 가능
+        let [kim,park,...others] = arr;
+        console.log(kim,park,others);
+
+        // data exchange(데이터 값 상호교환)
+        let html = 89;
+        let java = 100;
+        console.log(html,java);
+
+       /* let tmp = html;
+        html = java;
+        java = tmp;
+        console.log(html,java); */
+        // 위와 같은 구조를 편리하게 하기 위해서
+        // distructing
+        [html, java] = [java, html];
+        console.log(html,java); // 값이 정상적으로 바뀜
+
+        const laptop={
+            title :'Apple Macbook M1 Pro',
+            won : 2000000,
+            cpu: 'M1',
+            ram:'8GB',
+            ssd:'256GB',
+            display:'Retina',
+            touchBar: true,
+            core:'8core'
+        };
+
+        console.log(laptop.cpu, laptop.ram);
+        // ★ 위 출력문을 distructing으로
+        let {cpu,ram} = laptop;
+        console.log(cpu,ram);
+
+        let {display, thunderbolt='2ea'} = laptop; // 객체에 없는 것을 값을 넣어서 출력
+        console.log(display, thunderbolt);
+
+        let propName = 'won';
+        let {[propName] : price} = laptop; // 'won' 이라는 key를 price로 인지하겠다
+        console.log(price);
+
+        let oldArr = ['a','b','c'];
+        let newObj = {...oldArr}; // 0 : a 이런식으로 key : value로 표현
+        console.log(newObj['0']); // 오브젝트라 문자열 '0'이라는 key로 값을 가져와야함
+        for(const key in newObj){
+            console.log(newObj[key]);
+        }
+    </script>
+</body>
+</html>

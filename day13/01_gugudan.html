@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .user{
+            background-color: beige;
+        }
+    </style>
+</head>
+<body>
+    <!-- 구구단 문제 -->
+     <button type="button" id="startBtn">문제 출제</button>
+     <ol id="q"></ol>
+     <button type="button" id="compareBtn">정답 확인</button>
+     <h3 id="print"></h3>
+    
+     <script>
+        const ansObj = {}; // 정답을 담는 객체
+        const quizArea = document.getElementById('q');
+        // ans0 : 정답을 담을 변수 이름
+        // ansObj[ans0] = 정답
+        // id => html 파일에서 유일하게 구분이 가능해야 함
+        document.getElementById('startBtn').addEventListener('click',()=> {
+            let count = 0;
+            let q = '';
+            
+            do{
+                let dan = makeRandom(2,9);
+                let incre = makeRandom(1,9);
+                let answer = dan * incre;
+                // 정답을 객체에 저장
+                ansObj[`ans${count}`] = answer;
+
+                // quiz 영역에 뿌리기
+                q += `<li>${dan} x ${incre} = <input type="text" class="user" id="userAns${count}"> </li>`;
+                count++;
+            }while(count < 10);
+            quizArea.innerHTML = q;
+            console.log(ansObj);
+        });
+
+        function makeRandom(min, max){
+            // 2~9단 / incre 1~9
+            return Math.floor(Math.random()*(max - min + 1))+ min;
+        }
+        
+        // 정답확인버튼을 한 번만 누를 수 있게끔 하기
+        // 방법 1. 버튼 객체를 disabled로 변경
+        // 객체.disabled=true; => 버튼 실행 막기 / false => 버튼 실행 가능
+
+        // 방법 2. 
+        // {once : true} : 이벤트가 실행 될때 한 번 실행되면 리스너를 자동으로 삭제
+        // 정답 확인
+        document.getElementById('compareBtn').addEventListener('click',()=>{
+            let correct = 0; // 정답개수
+            let count = 0;
+
+            const userInput = document.querySelectorAll('.user');
+            console.log(userInput);
+
+            while(count < 10){
+                console.log(userInput[count]);
+                if(Number(userInput[count].value) == ansObj[`ans${count}`]){
+                    correct++;
+                    userInput[count].value += `\t 🙆`;
+                    userInput[count].style.backgroundColor = 'green';
+                } else{
+                    userInput[count].value += `\t 🙅‍♂️`;
+                    userInput[count].style.backgroundColor = 'red';
+                }
+                count ++;
+            }
+            document.getElementById('print').innerText = `정답 갯수 : ${correct}, 정답률 : ${(correct/count)*100}%`;
+        },{once:true}); // 이벤트가 한 번만 발생시키는
+     </script>
+</body>
+</html>
