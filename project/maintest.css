@@ -1,0 +1,440 @@
+/* 글로벌 설정 및 리셋 */
+body {
+    /* box-sizing: border-box; (body에는 적용하지 않는 것이 일반적입니다. 이미 *에서 적용됩니다.) */
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #f8fafc;
+}
+
+* {
+    box-sizing: border-box; /* 모든 요소에 box-sizing 적용 */
+    margin: 0; /* Tailwind 사용 시 기본 마진 충돌 방지를 위해 명시적으로 추가 */
+    padding: 0; /* Tailwind 사용 시 기본 패딩 충돌 방지를 위해 명시적으로 추가 */
+    list-style: none; /* list 스타일 제거 */
+    text-decoration: none;
+}
+
+/* Header */
+.header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 20px 40px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    /* HTML에서 최상위 컨테이너가 max-width를 관리하므로, header-content에서는 너비 제한을 제거하거나 (또는) 100%로 설정합니다. */
+    /* 하지만 원본 CSS가 max-width: 1200px을 가지고 있으므로, 컨테이너 div 내부의 header-content에 적용하기 위해 유지합니다. */
+    max-width: 1200px; 
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #1e40af;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-item {
+    color: #64748b;
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.nav-item:hover {
+    color: #1e40af;
+}
+
+/* 로그인/회원가입 메뉴 조정 */
+/* HTML에 container div가 추가되었기 때문에 absolute 위치를 조정합니다. */
+.login-page {
+    /* 컨테이너 div를 기준으로 right: 0 (padding 40px만큼 안쪽으로 들어감) */
+    position: absolute;
+    right: 40px; 
+    /* header-content 안에 있지만, absolute로 뺐으므로 header에 relative를 주거나, 
+       header-content의 부모 요소(header)의 오른쪽 끝을 기준으로 삼습니다.
+       여기서는 CSS 원본을 유지하기 위해 원본 스타일을 따르되, 
+       HTML 구조를 고려하여 header-content에 포함되어 있으므로 right: 20px를 유지합니다. */
+}
+
+.login-page > ul {
+    display: flex;
+    padding: 0; /* ul의 기본 패딩 제거 */
+    margin: 0; /* ul의 기본 마진 제거 */
+}
+
+.login-page > ul > li {
+    margin-right: 20px;
+    font-weight: 700;
+}
+
+.login-page > ul > li:last-child {
+    margin-right: 0;
+}
+
+.login-page a {
+    text-decoration: none;
+    color: gray;
+    transition: color 0.3s ease;
+}
+
+.login-page a:hover {
+    color: black;
+}
+
+
+/* Hero Section with Background */
+.hero {
+    position: relative;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+    /* Hero 섹션의 너비를 최상위 컨테이너(max-w-7xl)에 맞추기 위해, 
+       body나 container div의 100%를 따라가지 않도록 스타일링이 필요합니다. 
+       하지만 HTML 구조상 hero가 container 안에 있으므로, 별도의 max-width 설정 없이 
+       부모 너비를 따라가게 됩니다. 
+       만약 배경을 화면 전체로 확장하고 싶다면 hero를 container 밖으로 빼야 합니다.
+       현재는 HTML 구조 유지를 요청하셨으므로, container 안에서 동작합니다. */
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    z-index: 1;
+}
+
+.hero-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 2px, transparent 2px),
+        radial-gradient(circle at 75% 75%, rgba(255,255,255,0.1) 2px, transparent 2px);
+    background-size: 50px 50px;
+    z-index: 2;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+    z-index: 3;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 4;
+    max-width: 800px;
+    padding: 0 40px;
+}
+
+.hero-title {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 24px;
+    opacity: 0.95;
+    margin-bottom: 40px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    background: #ffffff;
+    color: #1e40af;
+    padding: 16px 32px;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    padding: 16px 32px;
+    font-size: 18px;
+    font-weight: 600;
+    border: 2px solid white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: #1e40af;
+}
+
+/* Categories Section */
+.categories {
+    padding: 80px 40px;
+    background: white;
+}
+
+.categories-content {
+    /* HTML 컨테이너 div가 이미 max-w-7xl로 제한했으므로, 이 값은 컨테이너 너비와 조화를 이룹니다. */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 60px;
+    color: #1e293b;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.category-card {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    padding: 40px 30px;
+    border-radius: 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    border-color: #3b82f6;
+}
+
+.category-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.category-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #1e293b;
+}
+
+.category-count {
+    font-size: 16px;
+    color: #64748b;
+}
+
+/* Recent Posts Section */
+.recent-posts {
+    padding: 80px 40px;
+    background: #f8fafc;
+}
+
+.recent-posts-content {
+    /* HTML 컨테이너 div가 이미 max-w-7xl로 제한했으므로, 이 값은 컨테이너 너비와 조화를 이룹니다. */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.post-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.post-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.post-image {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    color: white;
+}
+
+.post-content {
+    padding: 25px;
+}
+
+.post-category {
+    font-size: 12px;
+    color: #3b82f6;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.post-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #1e293b;
+    line-height: 1.3;
+}
+
+.post-excerpt {
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.post-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+/* Footer */
+.footer {
+    /* 푸터의 경우 container div 밖으로 빼서 너비를 100%로 가져가는 것이 일반적이나, 
+       HTML 구조를 유지해야 하므로 container div 안에서 배경 색상을 가집니다. */
+    background: #1e293b;
+    color: white;
+    padding: 60px 40px 30px;
+}
+
+.footer-content {
+    /* HTML 컨테이너 div가 이미 max-w-7xl로 제한했으므로, 이 값은 컨테이너 너비와 조화를 이룹니다. */
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.footer-section h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.footer-section p, .footer-section a {
+    color: #94a3b8;
+    text-decoration: none;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.footer-section a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #374151;
+    color: #94a3b8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 32px;
+    }
+
+    .hero-subtitle {
+        font-size: 18px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .header-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .nav-menu {
+        gap: 20px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-primary, .btn-secondary {
+        width: 200px;
+    }
+
+    /* 모바일 환경에서 로그인 페이지 위치 조정 */
+    .login-page {
+        position: static; /* sticky header에서 위치 고정 해제 */
+        right: auto;
+    }
+}
+
+@view-transition {
+    navigation: auto;
+}
