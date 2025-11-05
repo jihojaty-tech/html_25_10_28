@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        1~99까지의 숫자 중 하나를 랜덤으로 선택하여 해당 숫자를 맞추는 게임
+    -->
+        <div>
+            <button id="random">랜덤 숫자 생성 버튼</button>
+            <button id="re">다시시도</button>
+            <h1 id="printMsg"></h1>
+        </div>
+        <div>
+            <input type="text" id="myNum">
+            <button id="compareNum">제출!</button>
+            <h1 id="result"></h1>
+        </div>
+        <script>
+            const printMsg = document.getElementById('printMsg');
+            const result = document.getElementById('result');
+            let computerNum = 0;
+            let count = 0;
+            let str = '';
+
+            document.getElementById('compareNum').addEventListener('click',()=>{
+                if(computerNum == 0){
+                    result.innerText = '랜덤수가 생성되지 않았습니다.';
+                }else{
+                    if(count == 5){
+                        str+=`5회 횟수제한을 초과하였습니다. \n`;
+                        result.innerText = str;
+                        return;
+                    }
+                    let myNum = Number(document.getElementById('myNum').value);
+                    if(myNum <= 0 || myNum >= 100 ){
+                        str += '1~99까지의 숫자만 가능합니다.\n';
+                    }else{
+                        count++;
+                        if(myNum == computerNum){
+                            str += `횟수:${count}, 정답!!. ${computerNum}였습니다.\n`;
+                        }else if(computerNum > myNum){
+                            str += `횟수:${count}, ${myNum} => UP!! \n`;
+                        }else{
+                            str += `횟수:${count}, ${myNum} => DOWN!! \n`;
+                        }
+                    }
+                    result.innerText = str;
+                }
+                // 다시 입력가능한 상태로 비워둠
+                document.getElementById('myNum').value = '';
+            });
+
+            document.getElementById('random').addEventListener('click',()=>{
+                computerNum = Math.floor(Math.random()*99)+1;
+                printMsg.innerText = '컴퓨터가 랜덤수를 생성했습니다. (1~99)';
+                console.log(computerNum);
+            });
+
+            // 새로고침 (다시시도)
+            document.getElementById('re').addEventListener('click',()=>{
+                window.location.reload(); // 새로고침
+                // location.reload(); // window 는 생략가능
+            });
+        </script>
+
+</body>
+</html>

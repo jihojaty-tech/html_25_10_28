@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: bisque;
+        }
+        .nanum-gothic-coding-regular {
+        font-family: "Nanum Gothic Coding", monospace;
+        font-weight: 400;
+        font-style: normal;
+        margin-top: 50px;
+        }
+        .container{
+            text-align: center;
+        }
+        .logo{
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        .order{
+            transition: 0.5s;
+        }
+        .order:hover{
+            font-size: 20px;
+        }
+        .image:hover{
+            transform: scale(1.1,1.1);
+        }
+        .combo{
+            margin: auto;
+            width: 350px;
+            border-radius: 10px;
+            background-color: white;
+            overflow: hidden;
+            margin-bottom: 100px;
+        }
+        .위로가기{
+            position: fixed;
+            /*top bottom left right*/
+            bottom: 20px;
+            right: 20px;
+            background-color: whitesmoke;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 50px;
+            font-weight: 700;
+            border-radius: 50%;
+        }
+        .위로가기>a{
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header> 
+            <h1><img class="logo" src="../test/교촌치킨로고.jpg" alt="교촌치킨로고" width="200" height="70"></h1>
+            <div class="nanum-gothic-coding-regular"><h3>진심이 세상을 움직인다</h3></div>
+        </header>
+        <main>
+            <!-- 하나의 메뉴 박스 -->
+            <div class="combo">
+                <div class="image"><img src="../test/레드콤보.jpg" alt="레드콤보" width="350"></div>
+                <div>
+                    <h2>레드콤보</h2>
+                    <h4>국내산 청양 홍고추의 매콤한 맛에
+                        날개와 다리를 함께 즐길 수 있는 메뉴</h4>
+                    <p><del>23,000원</del>  21,900원</p>
+                    <div class="order"><a href="https://toss.im/" target="_blank"><p>주문</p></a></div>
+                </div>
+            </div>
+            <div class="combo">
+                <div class="image"><img src="../test/허니콤보.jpg" alt="허니콤보" width="350"></div>
+                <div>
+                    <h2>허니콤보</h2>
+                    <h4>달콤한 허니소스에 쫄깃한 날개와
+                        담백한 다리가 만난 메뉴</h4>
+                    <p><del>23,000원</del>  21,900원</p>
+                    <div class="order"><a href="https://toss.im/" target="_blank"><p>주문</p></a></div>
+                </div>
+            </div>
+            <div class="combo">
+                <div class="image"><img src="../test/간장콤보.jpg" alt="간장콤보" width="350"></div>
+                <div>
+                    <h2>간장콤보</h2>
+                    <h4>마늘과 간장소스의 풍부한 맛에
+                        날개와 다리를 함께 즐길 수 있는 메뉴</h4>
+                    <p><del>22,000원</del>  19,900원</p>
+                    <div class="order"><a href="https://toss.im/" target="_blank"><p>주문</p></a></div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div class="위로가기">
+        <a href="#top">^</a>
+    </div>
+</body>
+</html>

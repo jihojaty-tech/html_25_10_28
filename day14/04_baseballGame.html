@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="startBtn">게임시작</button>
+    <button id="resetBtn">다시시작</button>
+    <h1 id="comMsg"></h1>
+    숫자입력 : <input type="text" id="myNum">
+    <button id="tryBtn">게임확인</button>
+    <ol id="tries"></ol>
+
+    <script>
+        /* 
+            1. 게임시작 전 입력 금지.
+            2. 중복 값X
+            3. 반드시 3자리
+            4. 문자X
+        */
+        // comNum 배열과, 사용자 value 값의 배열 비교
+        // 값 위치가 동일하면 strike, 값만 동일하면 ball
+        // 일치하는 값이 없다면 out
+        let comNums = [];
+        const comMsg = document.getElementById('comMsg');
+        const tries = document.getElementById('tries');
+        const myNum = document.getElementById('myNum');
+
+        document.getElementById('tryBtn').addEventListener('click',()=>{
+            // myNum  / comNum 비교함수
+            let count = 0;
+            if(comNums.length <= 0){
+                comMsg.innerText = '게임시작 버튼을 먼저 클릭해주세요';
+                return;
+            }
+
+            let myNumVal = myNum.value;
+            count++;  // 게임 횟수 저장
+            // 검증
+            if(vaildMyNum(myNumVal)){
+                console.log('검증 통과');
+                let myNums = myNumVal.split(""); // 각 자리마다 분리 => 배열
+                console.log(myNums);
+
+                let strike = 0;
+                let ball = 0;
+
+                for(let i=0; i<comNums.length; i++){
+                    for(let j=0; j<myNums.length; j++){
+                        if(comNums[i] == myNums[j]){
+                            if(i==j){
+                                strike++;
+                            }else{
+                                ball++;
+                            }
+                            break;
+                        }
+                    }
+                }
+
+                let str = '';
+
+                // 판정
+                if(strike == 0 && ball == 0){
+                    str = `<li> ${myNums} => out!!</li>`;
+                }else{
+                    if(strike == 3){
+                        str = `<li>${myNums} => success!!</li>`;
+                    }else{
+                        str = `<li>${myNums} => ${strike}S, ${ball}B</li>`;
+                    }
+                }
+                tries.innerHTML += str;
+            }else{
+                console.log('검증 실패');
+                comMsg.innerText = '유효하지 않은 숫자입니다.';
+            }
+            myNum.value = '';
+            myNum.focus();
+        });
+
+        
+        // 사용자 입력값에 대한 규칙 체크
+        function vaildMyNum(myNum){
+            // myNum => string
+            if(new Set(myNum.split("")).size != 3){
+                return false;
+            }else if(myNum.length != 3){
+                return false;
+            }else if(isNaN(myNum)){
+                return false;
+            }else{
+                return true;
+            }
+        }
+
+        document.getElementById('resetBtn').addEventListener('click',()=>{
+            // 새로고침
+            window.location.reload();
+        });
+
+        document.getElementById('startBtn').addEventListener('click',()=>{
+            // comNum를 정하는 함수
+            // 중복없이 0~9까지의 숫자 중 3자리를 선택
+            const comSet = new Set();
+            comNums = [];
+            do{
+                let rNum = Math.floor(Math.random()*10);
+                comSet.add(rNum);
+            }while(comSet.size < 3);
+            console.log(comSet);
+
+            // set => arr로 저장
+            comSet.forEach(v=>comNums.push(v));
+            console.log(comNums);
+            comMsg.innerText = '컴퓨터가 숫자를 결정하였습니다.';
+        });
+    </script>
+</body>
+</html>
