@@ -1,0 +1,128 @@
+<!-- simple-plain-auth.html -->
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <title>초간단 로컬 회원가입/로그인 (ID중복확인)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body{font-family:system-ui;padding:18px;max-width:520px;margin:auto}
+    input{width:100%;padding:8px;margin:6px 0;box-sizing:border-box}
+    button{padding:8px 12px;margin-right:6px}
+    .hidden{display:none}
+    .msg{margin-top:8px;color:#333}
+    .danger{color:#b00020}
+    .note{font-size:13px;color:#666;margin-top:12px}
+  </style>
+</head>
+<body>
+  <h2>초간단 회원가입 / 로그인</h2>
+
+  <div id="formArea">
+    <input id="userId" placeholder="ID (로그인에 사용)" />
+    <input id="userName" placeholder="이름 (선택)" />
+    <input id="userPwd" placeholder="비밀번호" type="password" />
+    <div style="margin-top:8px">
+      <button id="btnCheck">ID중복확인</button>
+      <button id="btnReg">회원가입</button>
+      <button id="btnLogin">로그인</button>
+    </div>
+    <div id="msg" class="msg"></div>
+    <div class="note">※ 매우 간단한 데모: 비밀번호가 평문으로 저장됩니다. 실서비스 금지.</div>
+  </div>
+
+  <div id="profileArea" class="hidden">
+    <p id="who"></p>
+    <button id="btnLogout">로그아웃</button>
+  </div>
+
+<script>
+const USERS_KEY = 'plain_users_simple';
+const SESSION_KEY = 'plain_session_simple';
+
+function loadUsers(){ return JSON.parse(localStorage.getItem(USERS_KEY) || '{}'); }
+function saveUsers(u){ localStorage.setItem(USERS_KEY, JSON.stringify(u)); }
+function saveSession(s){ localStorage.setItem(SESSION_KEY, JSON.stringify(s)); }
+function loadSession(){ return JSON.parse(localStorage.getItem(SESSION_KEY) || 'null'); }
+function clearSession(){ localStorage.removeItem(SESSION_KEY); }
+
+const userIdEl = document.getElementById('userId');
+const userNameEl = document.getElementById('userName');
+const userPwdEl = document.getElementById('userPwd');
+const msgEl = document.getElementById('msg');
+const formArea = document.getElementById('formArea');
+const profileArea = document.getElementById('profileArea');
+const whoEl = document.getElementById('who');
+
+document.getElementById('btnCheck').onclick = () => {
+  const id = (userIdEl.value || '').trim();
+  if (!id) { showMsg('ID를 입력하세요.', true); return; }
+  const users = loadUsers();
+  if (users[id]) showMsg(`이미 사용 중인 ID입니다: "${id}"`, true);
+  else showMsg(`사용 가능한 ID입니다: "${id}"`);
+};
+
+document.getElementById('btnReg').onclick = () => {
+  const id = (userIdEl.value || '').trim();
+  const name = (userNameEl.value || '').trim();
+  const pwd = userPwdEl.value || '';
+  if (!id || !pwd) { showMsg('ID와 비밀번호는 필수입니다.', true); return; }
+
+  const users = loadUsers();
+  if (users[id]) { showMsg('이미 존재하는 ID입니다. 다른 ID를 사용하세요.', true); return; }
+
+  // 평문 저장 (초간단 데모용)
+  users[id] = { name: name || '', password: pwd, createdAt: Date.now() };
+  saveUsers(users);
+  showMsg('회원가입 완료! 이제 로그인하세요.');
+  userPwdEl.value = '';
+};
+
+document.getElementById('btnLogin').onclick = () => {
+  const id = (userIdEl.value || '').trim();
+  const pwd = userPwdEl.value || '';
+  if (!id || !pwd) { showMsg('ID와 비밀번호를 입력하세요.', true); return; }
+
+  const users = loadUsers();
+  const u = users[id];
+  if (!u) { showMsg('해당 ID가 없습니다.', true); return; }
+  if (u.password !== pwd) { showMsg('비밀번호가 일치하지 않습니다.', true); return; }
+
+  // 로그인 성공: 간단 세션 저장
+  saveSession({ id, token: btoa(id + ':' + Date.now()) });
+  showMsg('로그인 성공!');
+  userPwdEl.value = '';
+  renderProfile();
+};
+
+document.getElementById('btnLogout').onclick = () => {
+  clearSession();
+  renderProfile();
+};
+
+function showMsg(text, isError) {
+  msgEl.textContent = text;
+  msgEl.classList.toggle('danger', !!isError);
+}
+
+function renderProfile() {
+  const s = loadSession();
+  if (s && s.id) {
+    const users = loadUsers();
+    const u = users[s.id] || {};
+    whoEl.textContent = (u.name ? (u.name + ' — ') : '') + s.id;
+    formArea.classList.add('hidden');
+    profileArea.classList.remove('hidden');
+    showMsg('');
+  } else {
+    formArea.classList.remove('hidden');
+    profileArea.classList.add('hidden');
+    showMsg('');
+  }
+}
+
+// 초기 화면
+renderProfile();
+</script>
+</body>
+</html>

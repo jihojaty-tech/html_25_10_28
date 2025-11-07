@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="img/로고.png">
+  <title>문의글 작성</title>
+  <link rel="stylesheet" href="06_cust.css">
+</head>
+<body>
+  <h1>📄 문의글 작성 / 보기</h1>
+  <section>
+    <input type="text" id="titleInput" placeholder="제목을 입력하세요">
+    <textarea id="contentInput" placeholder="내용을 입력하세요"></textarea>
+    <button id="saveBtn">저장</button>
+    <button id="backBtn">목록으로</button>
+  </section>
+
+  <script src="06_cust.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const postId = params.get("id"); // ?id=123 형태면 postId=123
+
+    // 기존 글 열기 모드 (수정 모드)
+    if (postId) {
+      const post = getPosts().find(p => p.id == postId);
+      if (post) {
+        document.getElementById("titleInput").value = post.title;
+        document.getElementById("contentInput").value = post.content;
+      }
+    }
+
+    // 저장 버튼
+    document.getElementById("saveBtn").addEventListener("click", () => {
+      const title = document.getElementById("titleInput").value.trim();
+      const content = document.getElementById("contentInput").value.trim();
+      if (!title || !content) {
+        alert("제목과 내용을 입력하세요!");
+        return;
+      }
+
+      const posts = getPosts();
+
+      if (postId) {
+        // 기존 글 수정
+        const idx = posts.findIndex(p => p.id == postId);
+        if (idx !== -1) {
+          posts[idx].title = title;
+          posts[idx].content = content;
+          posts[idx].date = new Date().toLocaleString();
+        }
+      } else {
+        // 새 글 등록
+        posts.unshift({
+          id: Date.now(),
+          title,
+          content,
+          date: new Date().toLocaleString()
+        });
+      }
+
+      savePosts(posts);
+      location.href = "cust.html";
+    });
+
+    // 목록으로 돌아가기
+    document.getElementById("backBtn").addEventListener("click", () => {
+      location.href = "cust.html";
+    });
+  </script>
+</body>
+</html>

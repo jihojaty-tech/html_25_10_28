@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="img/로고.png">
+  <title>고객센터</title>
+  <link rel="stylesheet" href="06_cust.css">
+</head>
+<body>
+  <h1>📞 고객센터 게시판</h1>
+  <button id="writeBtn">✏️ 글쓰기</button>
+
+  <section id="listSection">
+    <h2>문의글 목록</h2>
+    <div id="postList"></div>
+  </section>
+
+  <script src="06_cust.js"></script>
+  <script>
+    renderPostList(); // 페이지 로드시 목록 표시
+
+    // 글쓰기 버튼 클릭 시 작성 페이지 이동
+    document.getElementById("writeBtn").addEventListener("click", () => {
+      location.href = "06_cust_1.html";
+    });
+  </script>
+</body>
+</html>

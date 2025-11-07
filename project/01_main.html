@@ -3,48 +3,68 @@
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>부동산 커뮤니티</title>
-  <link rel="stylesheet" href="maintest.css">
+  <link rel="icon" href="img/로고.png">
+  <title>부동산을 한눈에 내방</title>
+  <link rel="stylesheet" href="01_main.css">
 </head>
- <body>
- <div class="container">
+ <!-- body -->
+<body>
   <header class="header">
    <div class="header-content">
     <div class="site-title" id="site-title">
-        <a href="" id="logo">
-            로고넣어야하는 곳
-        </a>
+      <button type="button" id="logo">
+        <img src="/img/KakaoTalk_20251106_164808756.png" alt="logoImage">
+      </button>
     </div>
-    <nav class="nav-menu">
-     <a href="#categories" class="nav-item">내집찾기</a>
-     <a href="#recent" class="nav-item">공지사항</a>
-     <a href="" class="nav-item">커뮤니티</a>
-     <a href="" class="nav-item">고객센터</a>
-     <div class="login-page">
-      <ul>
-       <li class="after">
-        <a href="" class="login">로그인</a>
-       </li>
-       <li>
-        <a href="" class="sign">회원가입</a>
-       </li>
-      </ul>
-     </div>
+    <nav class="nav-menu"> 
+        <ul class="menu1">
+          <li>
+            <a href="#categories" class="nav-item">내집찾기</a> 
+            <ul class="submenu1">
+              <li><a href="">아파트/오피스텔</a></li>
+              <li><a href="">원룸/투룸</a></li>
+            </ul>
+          </li>
+        </ul>
+        <a href="#recent" class="nav-item">공지사항</a>
+        <ul class="menu3">
+          <li>
+            <a href="04_board.html" class="nav-item">커뮤니티</a>
+            <ul class="submenu3">
+              <li><a href="04_board.html">자유게시판</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="menu4">
+          <li>
+            <a href="#" class="nav-item">고객센터</a>
+            <ul class="submenu4">
+              <li><a href="">자주묻는 질문</a></li>
+              <li><a href="06_cust.html" target="_blank">1:1문의</a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="login-page">
+            <a href="07_login.html" class="login after">로그인</a>
+            <a href="08_sign_up.html" class="sign">회원가입</a>
+        </div>
     </nav>
    </div>
-  </header><section class="hero">
+  </header>
+  <!-- 상단화면 -->
+  <section class="hero">
    <div class="hero-background"></div>
-   <div class="hero-pattern"></div>
-   <div class="hero-overlay"></div>
    <div class="hero-content">
     <h1 class="hero-title" id="hero-title">부동산 정보를 담는 공간</h1>
     <p class="hero-subtitle" id="hero-subtitle">화면으로 편하게 보는 부동산 중개 사이트</p>
     <div class="hero-buttons">
-        <a href="#categories" class="btn-primary">둘러보기</a> 
-        <a href="#recent" class="btn-secondary">공지사항</a>
+      <a href="#categories" class="btn-primary">둘러보기</a> 
+      <a href="#recent" class="btn-secondary">공지사항</a>
     </div>
    </div>
-  </section><section class="categories" id="categories">
+  </section>
+  <!-- 카테고리 -->
+  <section class="categories" id="categories">
    <div class="categories-content">
     <h2 class="section-title" id="categories-title">내집찾기</h2>
     <div class="categories-grid">
@@ -71,23 +91,27 @@
      </div>
     </div>
    </div>
-  </section><section class="recent-posts" id="recent">
+  </section>
+  <!-- 꿀팁 -->
+  <section class="recent-posts" id="recent">
    <div class="recent-posts-content">
-    <h2 class="section-title" id="recent-posts-title">공지 사항</h2>
+    <h2 class="section-title" id="recent-posts-title">TIP</h2>
     <div class="posts-grid">
      <article class="post-card">
       <div class="post-image">
        🏢
       </div>
-      <div class="post-content">
-       <div class="post-category">
-        매매 정보
-       </div>
-       <h3 class="post-title">강남구 아파트 시세 분석 (2024년 1월)</h3>
-       <p class="post-excerpt">최근 강남구 아파트 매매가격 동향을 분석해보았습니다. 전월 대비 상승률과 향후 전망을 함께 살펴보세요.</p>
-       <div class="post-meta"><span>부동산전문가</span> <span>2시간 전</span>
-       </div>
-      </div>
+      <a href="꿀팁1.html" target="_blank">
+        <div class="post-content">
+          <div class="post-category">
+            매매 정보
+          </div>
+          <h3 class="post-title">강남구 아파트 시세 분석 (2024년 1월)</h3>
+          <p class="post-excerpt">최근 강남구 아파트 매매가격 동향을 분석해보았습니다. 전월 대비 상승률과 향후 전망을 함께 살펴보세요.</p>
+          <div class="post-meta"><span>부동산전문가</span> <span>2시간 전</span>
+          </div>
+        </div>
+      </a>
      </article>
      <article class="post-card">
       <div class="post-image">
@@ -141,7 +165,9 @@
        </div>
        <h3 class="post-title">신축 아파트 vs 재건축 아파트</h3>
        <p class="post-excerpt">신축과 재건축 아파트의 장단점을 비교분석해보았습니다. 투자 관점에서의 차이점도 함께 살펴보세요.</p>
-       <div class="post-meta"><span>투자전문가</span> <span>3일 전</span>
+       <div class="post-meta">
+          <span>투자전문가</span> 
+          <span>3일 전</span>
        </div>
       </div>
      </article>
@@ -161,33 +187,44 @@
      </article>
     </div>
    </div>
-  </section><footer class="footer">
+  </section>
+  <!-- 사이트소개 -->
+  <footer class="footer">
    <div class="footer-content">
     <div class="footer-section">
-     <h3>커뮤니티 소개</h3>
-     <p>부동산 정보를 공유하고 소통하는 전문 커뮤니티입니다.</p>
+     <h3>소개</h3>
+     <p>부동산 현황을 확인하고 소통하는 전문 웹사이트입니다.</p>
      <p>전문가와 일반인이 함께 만들어가는 신뢰할 수 있는 정보 공간입니다.</p>
     </div>
     <div class="footer-section">
-     <h3>주요 카테고리</h3><a href="#">매매 정보</a> <a href="#">전월세 정보</a> <a href="#">시장 동향</a> <a href="#">질문과 답변</a>
+     <h3>주요 카테고리</h3>
+     <a href="#">매매 정보</a> 
+     <a href="#">전월세 정보</a> 
+     <a href="#">시장 동향</a> 
+     <a href="https://www.youtube.com/watch?v=KKzD5OcoBKE" target="_blank">부동산 거래 꿀팁</a>
     </div>
     <div class="footer-section">
-     <h3>고객 지원</h3><a href="#">공지사항</a> <a href="#">자주 묻는 질문</a> <a href="#">문의하기</a> <a href="#">신고하기</a>
+     <h3>고객 지원</h3>
+     <a href="#">공지사항</a> 
+     <a href="#">자주 묻는 질문</a> 
+     <a href="#">문의하기</a> 
+     <a href="#">신고하기</a>
     </div>
     <div class="footer-section">
-     <h3>정책</h3><a href="#">이용약관</a> <a href="#">개인정보처리방침</a> <a href="#">커뮤니티 가이드라인</a>
+     <h3>정책</h3>
+     <a href="이용약관.html" target="_blank">이용약관</a> 
+     <a href="개인정보처리방침.html" target="_blank">개인정보처리방침</a> 
+     <a href="가이드라인.html" target="_blank">커뮤니티 가이드라인</a>
     </div>
    </div>
    <div class="footer-bottom">
     <p>© 2024 부동산 커뮤니티. All rights reserved.</p>
    </div>
   </footer>
- </div> 
- 
-    <script>
-        document.getElementById('logo').addEventListener('click',()=>{
-            location.reload();
-        })
-    </script>
- </body>
+  <script>
+    document.getElementById('logo').addEventListener('click',()=>{
+        location.href = 'main.html'; // 로고 클릭시 main 재 실행
+    })
+  </script>
+</body>
 </html>
