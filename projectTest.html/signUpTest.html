@@ -112,12 +112,10 @@ function renderProfile() {
     const u = users[s.id] || {};
     whoEl.textContent = (u.name ? (u.name + ' — ') : '') + s.id;
     formArea.classList.add('hidden');
-    profileArea.classList.remove('hidden');
-    showMsg('');
+    profile.classList.remove('hidden');
   } else {
     formArea.classList.remove('hidden');
     profileArea.classList.add('hidden');
-    showMsg('');
   }
 }
 

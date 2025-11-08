@@ -44,10 +44,14 @@
             </ul>
           </li>
         </ul>
-          <ul class="menu5">
+          <ul class="menu5" id="menu5">
             <li><a href="../login/07_login.html" class="login after">로그인</a></li>
             <li><a href="../login/08_sign_up.html" class="sign">회원가입</a></li>
           </ul>
+          <div id="profile" class="hidden">
+            <span id="userName"></span>
+            <button id="btnLogout">로그아웃</button>
+</div>
     </nav>
    </div>
   </header>
@@ -221,10 +225,7 @@
     <p>© 2024 부동산 커뮤니티. All rights reserved.</p>
    </div>
   </footer>
-  <script>
-    document.getElementById('logo').addEventListener('click',()=>{
-        location.href = 'main.html'; // 로고 클릭시 main 재 실행
-    })
-  </script>
+  <script src="../login/login_sign_up.js"></script>
+ <script src="01_main.js"></script>
 </body>
 </html>
