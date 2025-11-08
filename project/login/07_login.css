@@ -1,11 +1,11 @@
-    /* 화면 꽉 채우기*/
+/* 화면 꽉 채우기*/
     body, html {
     margin: 0; /* 외부 여백 제거 */
     padding: 0; /* 내부 여백 제거 */
     box-sizing: border-box; /* 패딩과 보더가 너비/높이에 포함되도록 설정 */
 }
     
-    /* 전체 배경 설정: Hero 섹션과 동일한 그라데이션 */
+/* 전체 배경 설정: Hero 섹션과 동일한 그라데이션 */
 .minimal-login-wrapper {
     display: flex;
     justify-content: center;
@@ -25,7 +25,7 @@
     border-radius: 20px; /* 더 둥근 모서리 */
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
     text-align: center;
-    backdrop-filter: blur(5px); /* 배경 블러 효과 (지원 브라우저 한정) */
+    padding-top: 0;
 }
 
 .minimal-title {
@@ -33,8 +33,8 @@
     font-weight: 800; /* 더 두꺼운 글꼴 */
     color: #1e293b;
     margin-bottom: 30px;
+    margin-top: 0;
 }
-
 
 
 /* 입력 필드 (라벨 없이 깔끔하게) */

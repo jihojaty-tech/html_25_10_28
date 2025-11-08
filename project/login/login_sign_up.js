@@ -53,9 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const userName = document.getElementById('name'); // 이름
     const userPwd = document.getElementById('password'); // 비밀번호
     const msg = document.getElementById('idMsg'); // 아이디 중복확인 메세지창 
-    const formArea = document.getElementById('signup-form'); // 로그인시 메인화면 로그인|회원가입부분 출력제어
-    const profileArea = document.getElementById('profileArea'); // 메인화면 로그인 정보(사용자정보,로그아웃 출력)
-    const who = document.getElementById('who'); // 사용자 정보 출력
     const terms = document.getElementById('terms'); // 개인정보동의 버튼
 
     function idMatch(){
@@ -177,56 +174,75 @@ document.getElementById('signUpBtn').onclick = (e) => { // 가입하기 버튼
 
 
 // 로그인 유효성 검사
-// document.getElementById('btnLogin').onclick = () => {
-//   const id = (userId.value || '').trim();
-//   const pwd = userPwd.value || '';
-//   if(!id || !pwd){ 
-//     showMsg('ID와 비밀번호를 입력하세요.', true); return; 
-//     }
+document.getElementById('btnLogin').onclick = () => {
+    const userId = document.getElementById('id_id'); // 아이디
+    const email = document.getElementById('email'); // 이메일
+    const userName = document.getElementById('name'); // 이름
+    const userPwd = document.getElementById('password_pwd'); // 비밀번호
+    const formArea = document.getElementById('signup-form'); // 로그인시 메인화면 로그인|회원가입부분 출력제어
+    const profileArea = document.getElementById('profileArea'); // 메인화면 로그인 정보(사용자정보,로그아웃 출력)
+    const who = document.getElementById('who'); // 사용자 정보 출력
+    const loginIdMsg = document.getElementById('loginIdMsg'); // 로그인 아이디 밑 출력 담당
+    const loginPwMsg = document.getElementById('loginPwMsg'); // 로그인 비번 밑 출력 담당
 
-//   const users = loadUsers();
-//   const u = users[id];
-//   if(!u){ 
-//     showMsg('해당 ID가 없습니다.', true); return; 
-//     }
-//   if(u.password !== pwd){ 
-//     showMsg('비밀번호가 일치하지 않습니다.', true); return; 
-//     }
+    loginIdMsg.classList.remove('fail','pass');
+    loginPwMsg.classList.remove('fail','pass');
+  const id = (userId.value || '').trim();
+  const pwd = (userPwd.value || '').trim();
+  // 아이디 비밀번호 미 입력 로그인버튼 클릭 시
+  if(!id || !pwd){ 
+    alert('ID와 비밀번호를 입력하세요.'); return; 
+    }
 
-//   // 로그인 성공: 간단 세션 저장
-//   saveSession({ id, token: btoa(id + ':' + Date.now()) });
-//   showMsg('로그인 성공!');
-//   userPwd.value = '';
-//   renderProfile();
-// };
+  const users = loadUsers(); // 사용자 정보 읽어오기
 
-// document.getElementById('btnLogout').onclick = () => {
-//   clearSession();
-//   renderProfile();
-// };
+  const u = users[id]; // id 가져와서 u에 담기
+  // 입력값과 로컬에 저장된 id/password가 다를 경우
+  if(!u){ 
+    loginIdMsg.innerText = '없는 ID 입니다.'; 
+    loginIdMsg.classList.add('fail');
+    return; 
+    }
+  if(u.password != pwd){ 
+    loginPwMsg.innerText = '비밀번호가 일치하지 않습니다.'; 
+    loginPwMsg.classList.add('fail');
+    return; 
+    }
 
-// function showMsg(text, isError) {
-//     idMatch();
-//   msg.innerText = text;
-//   // 명시적 오류 상황에서 시각적 강조
-//   msg.classList.toggle('danger', !!isError); // css에서 명시적 오류상황 빨간색으로표현
-// }
+  // 로그인 성공: 간단 세션 저장
+  saveSession({ id, token: btoa(id + ':' + Date.now()) });
+  showMsg('로그인 성공!');
+  userPwd.value = '';
+  renderProfile();
+};
 
-// function renderProfile() {
-//   const s = loadSession();
-//   if(s && s.id){
-//     const users = loadUsers();
-//     const u = users[s.id] || {};
-//     who.textContent = (u.name ? (u.name + ' — ') : '') + s.id;
-//     formArea.classList.add('hidden');
-//     profileArea.classList.remove('hidden');
-//     showMsg('');
-//   }else{
-//     formArea.classList.remove('hidden');
-//     profileArea.classList.add('hidden');
-//     showMsg('');
-//   }
-// }
+document.getElementById('btnLogout').onclick = () => {
+  clearSession();
+  renderProfile();
+};
+
+function showMsg(text, isError) {
+    idMatch();
+  msg.innerText = text;
+  // 명시적 오류 상황에서 시각적 강조
+  msg.classList.toggle('danger', !!isError); // css에서 명시적 오류상황 빨간색으로표현
+}
+
+function renderProfile() {
+  const s = loadSession();
+  if(s && s.id){
+    const users = loadUsers();
+    const u = users[s.id] || {};
+    who.textContent = (u.name ? (u.name + ' — ') : '') + s.id;
+    formArea.classList.add('hidden');
+    profileArea.classList.remove('hidden');
+    showMsg('');
+  }else{
+    formArea.classList.remove('hidden');
+    profileArea.classList.add('hidden');
+    showMsg('');
+  }
+}
 
 // 초기 화면
-// renderProfile();
+renderProfile();
