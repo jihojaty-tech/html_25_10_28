@@ -1,5 +1,3 @@
-// 07_login.js (수정된 최종 코드)
-
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('btnLogin').onclick = (e) => {
         e.preventDefault();
@@ -25,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // 2. 사용자 데이터 로드 및 ID 존재 여부 확인
         const users = loadUsers(); // 사용자 데이터 로드
-        const u = users[id]; // ★★★ u 변수를 여기서 정의합니다. (스코프 해결)
+        const u = users[id]; 
 
         if (!u) { 
             loginIdMsg.innerText = '없는 ID 입니다.'; 
@@ -40,12 +38,11 @@ document.addEventListener('DOMContentLoaded', function() {
             return; // 로그인 실패, 함수 종료
         }
 
-        // 4. 로그인 성공 (모든 검증 통과)
-        
-        // saveSession(u)를 통해 사용자 이름 등 메인화면에 필요한 모든 정보를 저장합니다.
+        // 4. 로그인 성공
+        // 메인화면에 필요한 정보를 저장
         saveSession(u); 
         
-        // 폼 필드 초기화
+        // 로그인 폼 필드 초기화
         userId.value = '';
         userPwd.value = ''; 
         
