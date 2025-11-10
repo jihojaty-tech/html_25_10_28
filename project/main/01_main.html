@@ -59,7 +59,29 @@
   <!-- 상단화면 -->
   <section class="hero">
     <!-- autoplay muted loop playsinline : 메인페이지 접속 시 자동 재생,음소거,반복재생 -->
-   <div class="hero-background"><video src="https://pixabay.com/ko/videos/%ea%b1%b4%eb%ac%bc-%eb%9d%bc%ea%b3%a0%ec%8a%a4-%ec%84%ac-%eb%9d%bc%ea%b3%a0%ec%8a%a4-%ec%a3%bc-313948/"autoplay muted loop playsinline></video></div>
+   <div class="hero-background">
+    <div class="slider-container">
+      <div class="slider-inner">
+          <div class="slide">
+              <video autoplay muted loop playsinline class="mainvideo" id="mainvideo1">
+                  <source src="../videos/313948_small.mp4" type="video/mp4">
+              </video>
+          </div>
+          <div class="slide">
+              <video autoplay muted loop playsinline class="mainvideo" id="mainvideo2">
+                  <source src="../videos/156471-812592010.mp4" type="video/mp4">
+              </video>
+          </div>
+          <div class="slide">
+              <video autoplay muted loop playsinline class="mainvideo" id="mainvideo3">
+                  <source src="../videos/179458-862151947_small.mp4" type="video/mp4">
+              </video>
+          </div>
+      </div> 
+    </div> 
+    <button class="prev-btn">◀</button>
+  <button class="next-btn">▶</button>
+</div>
    <div class="hero-content">
     <h1 class="hero-title" id="hero-title">부동산 정보를 담는 공간</h1>
     <p class="hero-subtitle" id="hero-subtitle">화면으로 편하게 보는 부동산 중개 사이트</p>
